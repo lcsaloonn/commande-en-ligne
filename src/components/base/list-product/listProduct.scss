@@ -1,0 +1,10 @@
+@use "./styles/mixins.scss";
+
+.list-product {
+  &-title {
+    @include mixins.text-format(1.6rem, normal, normal, 800);
+    font-family: gill sans, sans-serif;
+    color: var(--color-dark-blue);
+    padding: 30px 0;
+  }
+}
