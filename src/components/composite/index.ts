@@ -1,3 +1,3 @@
-import { ProductCardComponent } from "./product/product-card.component";
+import { LessMoreComponent } from "./lessmore/lessMore.component";
 
-export { ProductCardComponent };
+export { LessMoreComponent };
