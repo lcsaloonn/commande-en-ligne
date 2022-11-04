@@ -1,4 +1,4 @@
-import { ProductCardComponent } from "components/cards";
+import { ProductCardComponent } from "components/composite/cards";
 import { IProduct } from "types/product/product.interface";
 
 export function ListProductComponent({
