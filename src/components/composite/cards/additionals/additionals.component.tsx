@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./additionals.scss";
 
-export function AdditionalsComponent() {
+export function AdditionalsComponent({
+  name,
+  price,
+}: {
+  name: string;
+  price: number;
+}) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -15,9 +21,9 @@ export function AdditionalsComponent() {
         className="additionals-name"
         onClick={() => setIsChecked(!isChecked)}
       >
-        Supp Jambon Parma
+        Supp {name}
       </div>
-      <div className="additionals-price">+ 2,25 €</div>
+      <div className="additionals-price">+ {price.toFixed(2)} €</div>
     </div>
   );
 }
