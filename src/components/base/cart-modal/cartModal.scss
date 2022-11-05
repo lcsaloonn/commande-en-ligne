@@ -9,50 +9,6 @@
   background-color: #ececef;
   padding-bottom: 40px;
   border-radius: 35px 0 0 0;
-
-  &-title {
-    @include mixins.text-format(2rem, normal, normal, 700);
-    color: var(--color-dark-blue);
-    font-family: gill sans, sans-serif;
-    padding: 40px 20% 25px 20px;
-    text-align: left;
-  }
-  &-ingredient {
-    padding: 0 20px;
-    @include mixins.text-format(1.1rem, normal, normal, 0);
-    color: var(--color-dark-blue);
-  }
-  &-quantity {
-    display: flex;
-    background-color: var(--color-white);
-    margin: 20px 0 20px 30%;
-    padding: 12px 0 12px 12px;
-    border-radius: 45px 0 0 45px;
-    span {
-      @include mixins.text-format(1.1rem, normal, normal, 0);
-      color: var(--color-dark-blue);
-      margin: auto 20px;
-    }
-  }
-
-  &-additional {
-    padding: 0 20px;
-    &-title {
-      @include mixins.text-format(1.2rem, normal, normal, 700);
-      color: var(--color-grey);
-      padding-bottom: 7px;
-    }
-    &-subtitle {
-      @include mixins.text-format(1rem, normal, normal, 700);
-      color: var(--color-dark-blue);
-    }
-    &-content {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: var(--color-white);
-      border-radius: 25px;
-    }
-  }
 }
 
 .cart-modal,
