@@ -22,6 +22,18 @@ const mock = {
         name: "Jambon Parma",
         price: 2.25,
       },
+      {
+        name: "Jambon Parma",
+        price: 2.25,
+      },
+      {
+        name: "Jambon Parma",
+        price: 2.25,
+      },
+      {
+        name: "Jambon Parma",
+        price: 2.25,
+      },
     ],
   },
 };
@@ -54,6 +66,11 @@ export function CartModalComponent({
             />
             <div className="close-modal" onClick={onClose}>
               <FontAwesomeIcon className="button-go-back-icon" icon={faX} />
+            </div>
+            <div className="cart-modal-price">
+              <div className="cart-modal-price-container">
+                Valider ( 26,50 €)
+              </div>
             </div>
           </div>
         </div>

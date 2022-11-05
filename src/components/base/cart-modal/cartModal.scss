@@ -7,8 +7,31 @@
   bottom: 0;
   right: 7%;
   background-color: #ececef;
-  padding-bottom: 40px;
   border-radius: 35px 0 0 0;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.cart-modal-price {
+  display: flex;
+  justify-content: center;
+  border-radius: 35px 35px 0 0;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.05);
+  margin-top: -25px;
+  padding: 10px 0;
+  width: 100%;
+  background-color: var(--color-white);
+  position: sticky;
+  bottom: 0;
+  &-container {
+    @include mixins.text-format(1.2rem, normal, normal, 700);
+    background-color: var(--color-red);
+    color: var(--color-white);
+    width: 75%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 28px;
+  }
 }
 
 .cart-modal,
@@ -38,4 +61,5 @@ body.active-modal {
   right: 0px;
   padding: 20px 20px 25px 30px;
   color: var(--color-red);
+  cursor: pointer;
 }
