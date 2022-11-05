@@ -1,4 +1,4 @@
-import { ProductCardComponent } from "components/composite/cards";
+import { ProductCardComponent } from "components/composite/cards/zindex";
 import { IProduct } from "types/product/product.interface";
 import "./listProduct.scss";
 
