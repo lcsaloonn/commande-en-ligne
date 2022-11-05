@@ -15,7 +15,6 @@ export function ProductCardComponent({
   isDisable: boolean;
   img: IImage;
 }) {
-  console.log(text?.length);
   return (
     <div className={`product-card ${isDisable ? "disable" : ""}`}>
       <div className="product-card-content">
