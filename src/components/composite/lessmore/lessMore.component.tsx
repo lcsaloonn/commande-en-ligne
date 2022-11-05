@@ -11,15 +11,24 @@ export function LessMoreComponent({
   defaultNumber: number;
 }) {
   const [number, setNumber] = useState(defaultNumber);
+
+  function verificationData(data: number) {
+    if (data <= max && data >= min) return data;
+    else return number;
+  }
+
   return (
     <div className="less-more">
-      <div className="less-more-btn" onClick={() => setNumber(number - 1)}>
+      <div
+        className="less-more-btn"
+        onClick={() => setNumber(verificationData(number - 1))}
+      >
         -
       </div>
       <div className="less-more-number">{number}</div>
       <div
         className="less-more-btn items-center"
-        onClick={() => setNumber(number + 1)}
+        onClick={() => setNumber(verificationData(number + 1))}
       >
         +
       </div>
