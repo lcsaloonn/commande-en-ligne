@@ -10,13 +10,13 @@ export function AdditionalsComponent({
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
+  function handleChange(event: any) {
+    setIsChecked(event.target.checked);
+  }
+
   return (
     <div className={`additionals ${isChecked ? "checked" : ""}`}>
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onClick={() => setIsChecked(!isChecked)}
-      />
+      <input type="checkbox" checked={isChecked} onChange={handleChange} />
       <div
         className="additionals-name"
         onClick={() => setIsChecked(!isChecked)}
