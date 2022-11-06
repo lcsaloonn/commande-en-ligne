@@ -1,6 +1,6 @@
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ChooseAdditionalComponent } from "../zindex";
+import { ChooseAdditionalComponent } from "../../zindex";
 import "./cartModal.scss";
 
 const mock = {
