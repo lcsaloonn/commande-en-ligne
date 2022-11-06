@@ -24,7 +24,7 @@ export function ProductCardComponent({
           {title}
         </div>
         <div className="product-card-content-ingredients">
-          {text != null ? truncate(text, 103) : ""}
+          {text != null ? truncate(text, 90) : ""}
         </div>
         <div
           className={`product-card-content-price ${isDisable ? "disable" : ""}`}
