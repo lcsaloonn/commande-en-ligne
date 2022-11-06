@@ -3,7 +3,6 @@ import {
   CartModalComponent,
   ListProductComponent,
 } from "components/base/zindex";
-import { LessMoreComponent } from "components/composite/zindex";
 import { productMock } from "mocks/product.mock";
 import { useState } from "react";
 

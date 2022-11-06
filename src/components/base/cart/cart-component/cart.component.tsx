@@ -1,3 +1,4 @@
+import { CartProductComponent } from "../cart-product/cartProduct.component";
 import "./cart.scss";
 
 export function CartComponent() {
@@ -7,7 +8,9 @@ export function CartComponent() {
         <div className="cart-content-title">Mon Panier</div>
       </div>
 
-      <div className="cart-content-product">dddd</div>
+      <div className="cart-content-product">
+        <CartProductComponent quantity={1} name={"Burrata"} price={10} />
+      </div>
 
       <div className="cart-content">
         <div className="cart-content-price">

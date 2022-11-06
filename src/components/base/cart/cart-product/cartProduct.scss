@@ -1,0 +1,60 @@
+@use "./styles/mixins.scss";
+.cart-product {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  background-color: rgba(90, 200, 245, 0.1);
+  margin: 10px 0;
+
+  &-quantity {
+    display: flex;
+    justify-content: center;
+    width: 25px;
+    height: 22px;
+    background-color: rgba(90, 200, 245, 0.3);
+    text-align: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 3px;
+    color: var(--color-black);
+    font: inherit;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      background-color: var(--color-light-blue);
+      color: var(--color-white);
+    }
+    &-content {
+      margin: auto;
+      & span {
+        &:nth-child(1) {
+          @include mixins.text-format(0.9rem, normal, normal, 400);
+        }
+        &:nth-child(2) {
+          @include mixins.text-format(0.7rem, normal, normal, 400);
+        }
+      }
+    }
+  }
+  &-name {
+    @include mixins.text-format(1rem, normal, normal, 600);
+    text-transform: uppercase;
+    color: var(--color-dark-blue);
+    width: 65%;
+    padding-left: 20px;
+  }
+  &-price {
+    @include mixins.text-format(1rem, normal, normal, 600);
+    color: var(--color-dark-blue);
+  }
+  &-icon {
+    padding-left: 10px;
+    cursor: pointer;
+    svg {
+      height: 12px;
+      &:hover {
+        color: var(--color-red);
+      }
+    }
+  }
+}
