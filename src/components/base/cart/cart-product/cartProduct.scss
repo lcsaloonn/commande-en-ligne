@@ -48,8 +48,12 @@
     color: var(--color-dark-blue);
   }
   &-icon {
+    margin: auto;
     padding-left: 10px;
     cursor: pointer;
+    height: 15px;
+    align-items: center;
+    display: flex;
     svg {
       height: 12px;
       &:hover {

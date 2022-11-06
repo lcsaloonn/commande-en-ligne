@@ -20,11 +20,13 @@ export function CartProductComponent({
         </div>
       </div>
       <div className="cart-product-name">{name}</div>
-      <div className="cart-product-price">
-        {price.toFixed(2).toString().replace(".", ",") + " €"}
-      </div>
-      <div className="cart-product-icon">
-        <FontAwesomeIcon icon={faX} />
+      <div className="flex  m-auto ">
+        <div className="cart-product-price">
+          {price.toFixed(2).toString().replace(".", ",") + " €"}
+        </div>
+        <div className="cart-product-icon">
+          <FontAwesomeIcon icon={faX} />
+        </div>
       </div>
     </div>
   );
