@@ -24,7 +24,7 @@
   }
   &-name {
     @include mixins.text-format(1rem, normal, normal, 0);
-    width: 60%;
+    width: 55%;
     cursor: pointer;
     user-select: none;
   }
