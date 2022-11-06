@@ -7,6 +7,7 @@ const mock = {
   title: "Bustina Vert",
   ingredients:
     "Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+  price: 26.95,
   additionals: {
     title: "Pizza",
     additions: [
@@ -45,11 +46,8 @@ export function CartModalComponent({
   open: boolean;
   onClose: any;
 }) {
-  if (open) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+  if (open) document.body.classList.add("active-modal");
+  else document.body.classList.remove("active-modal");
 
   if (!open) return null;
 
@@ -63,14 +61,10 @@ export function CartModalComponent({
               title={mock.title}
               ingredients={mock.ingredients}
               additionals={mock.additionals}
+              price={mock.price}
             />
             <div className="close-modal" onClick={onClose}>
               <FontAwesomeIcon className="button-go-back-icon" icon={faX} />
-            </div>
-            <div className="cart-modal-price">
-              <div className="cart-modal-price-container">
-                Valider ( 26,50 €)
-              </div>
             </div>
           </div>
         </div>

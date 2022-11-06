@@ -1,19 +1,33 @@
 import { AdditionalsComponent } from "components/composite/cards/zindex";
 import { LessMoreComponent } from "components/composite/zindex";
+import { useEffect, useState } from "react";
 import "./chooseAdditionals.scss";
 
 export function ChooseAdditionalComponent({
   title,
   ingredients,
   additionals,
+  price,
 }: {
   title: string;
   ingredients: string;
+  price: number;
   additionals: {
     title: string;
     additions: { name: string; price: number }[];
   };
 }) {
+  const [finalPrice, setFinalPrice] = useState(price);
+  const [quantity, setQuantity] = useState(1);
+
+  function returnQuantity(quantity: number) {
+    setQuantity(quantity);
+  }
+
+  useEffect(() => {
+    setFinalPrice(price * quantity);
+  }, [quantity]);
+
   return (
     <>
       <div className="cart-modal-content-title">{title}</div>
@@ -21,7 +35,12 @@ export function ChooseAdditionalComponent({
 
       <div className="cart-modal-content-quantity">
         <span>Quantité :</span>
-        <LessMoreComponent min={0} max={100} defaultNumber={1} />
+        <LessMoreComponent
+          min={1}
+          max={100}
+          defaultNumber={1}
+          returnQuantity={returnQuantity}
+        />
       </div>
 
       <div className="cart-modal-content-additional">
@@ -40,6 +59,11 @@ export function ChooseAdditionalComponent({
               </div>
             )
           )}
+        </div>
+        <div className="cart-modal-content-price">
+          <div className="cart-modal-content-price-container">
+            Valider ( {finalPrice.toFixed(2)} €)
+          </div>
         </div>
       </div>
     </>

@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./lessMore.scss";
 
 export function LessMoreComponent({
   min,
   max,
   defaultNumber,
+  returnQuantity,
 }: {
   min: number;
   max: number;
   defaultNumber: number;
+  returnQuantity: any;
 }) {
   const [number, setNumber] = useState(defaultNumber);
 
@@ -16,6 +18,9 @@ export function LessMoreComponent({
     if (data <= max && data >= min) return data;
     else return number;
   }
+  useEffect(() => {
+    returnQuantity(number);
+  }, [number]);
 
   return (
     <div className="less-more">
