@@ -1,6 +1,5 @@
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ChooseAdditionalComponent } from "../../zindex";
 import "./cartModal.scss";
 
 const mock = {
@@ -42,9 +41,11 @@ const mock = {
 export function CartModalComponent({
   open,
   onClose,
+  children,
 }: {
   open: boolean;
   onClose: any;
+  children: JSX.Element;
 }) {
   if (open) document.body.classList.add("active-modal");
   else document.body.classList.remove("active-modal");
@@ -57,12 +58,7 @@ export function CartModalComponent({
         <div className="cart-modal">
           <div onClick={onClose} className="overlay"></div>
           <div className="cart-modal-content">
-            <ChooseAdditionalComponent
-              title={mock.title}
-              ingredients={mock.ingredients}
-              additionals={mock.additionals}
-              price={mock.price}
-            />
+            {children}
             <div className="close-modal" onClick={onClose}>
               <FontAwesomeIcon className="button-go-back-icon" icon={faX} />
             </div>
