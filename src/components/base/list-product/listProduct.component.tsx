@@ -18,16 +18,10 @@ export function ListProductComponent({
         {productList.map((item: IProduct, id: number) => (
           <div
             className="list-product-container-item col-span-9 xlp:col-span-6"
-            onClick={() => redirection()}
+            onClick={() => redirection()} // need to be move into productCardComponent
             key={id}
           >
-            <ProductCardComponent
-              title={item.title}
-              text={item.text}
-              price={item.price}
-              img={item.img}
-              isDisable={item.isDisable}
-            />
+            <ProductCardComponent product={item} isDisable={item.isDisable} />
           </div>
         ))}
       </div>
