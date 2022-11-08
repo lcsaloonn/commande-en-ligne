@@ -11,6 +11,7 @@ export enum TypeExtraEnum {
 }
 
 export interface IExtra {
+  id: number;
   name: string;
   price: number;
   isSelected: boolean;

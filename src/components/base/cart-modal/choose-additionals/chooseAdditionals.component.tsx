@@ -11,7 +11,7 @@ export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
   const [finalPrice, setFinalPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
 
-  const extras = useAppSelector((state) => state.products.extras).find(
+  const extras = useAppSelector((state) => state.products.extrasList).find(
     (element) => element.id === product.extrasID
   );
 
@@ -49,11 +49,7 @@ export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
               className="cart-modal-content-additional-content-item"
               key={key}
             >
-              <AdditionalsComponent
-                name={item.name}
-                price={item.price}
-                isSelected={item.isSelected}
-              />
+              <AdditionalsComponent extraObject={item} />
             </div>
           ))}
         </div>
