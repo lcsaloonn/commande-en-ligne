@@ -5,6 +5,7 @@ export interface IProduct {
   title: string;
   ingredients: string;
   price: number;
+  extrasID: number;
   isDisable: boolean;
   img: IImage;
 }

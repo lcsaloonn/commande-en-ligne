@@ -7,6 +7,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -19,6 +20,7 @@ export const productMock: IProduct[] = [
     ingredients:
       "Mozza fior di latte, Poulet fermier, provolone fumé, oignons rouges, parmigiano reggiano 22 mois AOP, tomates confites, roquette, crème de balsamique.",
     price: 14.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -31,6 +33,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -43,6 +46,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -55,6 +59,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: true,
     img: {
       link: "../assets/test-produit.jpg",
@@ -67,6 +72,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -79,6 +85,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
@@ -91,6 +98,7 @@ export const productMock: IProduct[] = [
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
+    extrasID: 1,
     isDisable: false,
     img: {
       link: "../assets/test-produit.jpg",
