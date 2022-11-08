@@ -2,18 +2,24 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { productMock } from "mocks/product.mock";
 import { IProduct } from "types/product/product.interface";
 
-const initialState: IProduct[] = productMock;
+const initialProduct: IProduct[] = productMock;
 
 export const productSlice = createSlice({
   name: "product",
-  initialState,
+  initialState: {
+    allProducts: initialProduct,
+    productSelected: initialProduct[1],
+  },
   reducers: {
-    create: (state, action: PayloadAction<IProduct[]>) => {
-      state = action.payload;
+    // triggerProduct: (state, action: PayloadAction<number>) => {
+    //   state.find((p) => p.id === action.payload);
+    // },
+    selectProduct: (state, action: PayloadAction<IProduct>) => {
+      state.productSelected = action.payload;
     },
   },
 });
 
-export const { create } = productSlice.actions;
+export const { selectProduct } = productSlice.actions;
 
 export default productSlice.reducer;
