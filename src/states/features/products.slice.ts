@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { productMock } from "mocks/product.mock";
 import { IProduct } from "types/product/product.interface";
+import { IExtras } from "types/product/extras.interface";
+import { extrasMock } from "mocks/extras.mock";
 
+const extras: IExtras[] = extrasMock;
 const initialProduct: IProduct[] = productMock;
 
 export const productSlice = createSlice({
@@ -9,6 +12,7 @@ export const productSlice = createSlice({
   initialState: {
     allProducts: initialProduct,
     productSelected: initialProduct[1],
+    extras: extras,
   },
   reducers: {
     // triggerProduct: (state, action: PayloadAction<number>) => {

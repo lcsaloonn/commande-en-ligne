@@ -4,11 +4,13 @@ import "./additionals.scss";
 export function AdditionalsComponent({
   name,
   price,
+  isSelected,
 }: {
   name: string;
   price: number;
+  isSelected: boolean;
 }) {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(isSelected);
 
   function handleChange(event: any) {
     setIsChecked(event.target.checked);
