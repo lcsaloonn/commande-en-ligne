@@ -1,39 +1,40 @@
-import { IImage } from "types/img.type";
+import { selectProduct } from "states/features/products.slice";
+import { useAppDispatch } from "states/hoocks";
+import { IProduct } from "types/product/product.interface";
 import { truncate } from "utils/text.utils";
 import "./product-card.scss";
 
 export function ProductCardComponent({
-  title,
-  text,
-  price,
+  product,
   isDisable,
-  img,
 }: {
-  title: string;
-  text?: string;
-  price: number;
+  product: IProduct;
   isDisable: boolean;
-  img: IImage;
 }) {
+  const dispatch = useAppDispatch();
+
   return (
-    <div className={`product-card ${isDisable ? "disable" : ""}`}>
+    <div
+      className={`product-card ${isDisable ? "disable" : ""}`}
+      onClick={() => dispatch(selectProduct(product))}
+    >
       <div className="product-card-content">
         <div
           className={`product-card-content-title ${isDisable ? "disable" : ""}`}
         >
-          {title}
+          {product.title}
         </div>
         <div className="product-card-content-ingredients">
-          {text != null ? truncate(text, 90) : ""}
+          {product.ingredients != null ? truncate(product.ingredients, 90) : ""}
         </div>
         <div
           className={`product-card-content-price ${isDisable ? "disable" : ""}`}
         >
-          {isDisable ? "indisponible" : price.toFixed(2) + " €"}
+          {isDisable ? "indisponible" : product.price.toFixed(2) + " €"}
         </div>
       </div>
       <div className={`product-card-image ${isDisable ? "disable" : ""}`}>
-        <img src={img.link} alt={img.alt} />
+        <img src={product.img.link} alt={product.img.alt} />
       </div>
     </div>
   );
