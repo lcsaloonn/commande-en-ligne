@@ -15,13 +15,32 @@ export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
     (element) => element.id === product.extrasID
   );
 
+  const selectedExtras = useAppSelector(
+    (state) => state.products.productSelected
+  ).extras;
+
+  /** Calucle la Somme des prix contenu dans le tableau d'extras */
+  function sumExtras() {
+    let sum = 0;
+    selectedExtras.forEach((element) => {
+      sum += element.price;
+    });
+    return sum;
+  }
+
+  /**
+   * retourne la quantité du composant lesMoreComponent
+   */
   function returnQuantity(quantity: number) {
     setQuantity(quantity);
   }
 
+  /**
+   * Calcule le prix en à chaque modification de quantity ou selectedExtras
+   */
   useEffect(() => {
-    setFinalPrice(product.price * quantity);
-  }, [quantity]);
+    setFinalPrice((product.price + sumExtras()) * quantity);
+  }, [quantity, selectedExtras]);
 
   return (
     <>
