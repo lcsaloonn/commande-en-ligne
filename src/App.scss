@@ -16,3 +16,9 @@ input[type="checkbox"] {
   -moz-appearance: none;
   -ms-appearance: none;
 }
+
+.main-container {
+  @screen xl {
+    margin: 0 5rem;
+  }
+}
