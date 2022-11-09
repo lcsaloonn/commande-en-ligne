@@ -1,23 +1,26 @@
 import { AdditionalsComponent } from "components/composite/cards/zindex";
 import { LessMoreComponent } from "components/composite/zindex";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "states/hoocks";
+import { addToCart } from "states/features/cart.slice";
+import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { IExtra } from "types/product/extras.interface";
 import { IProduct } from "types/product/product.interface";
 
-import "./chooseAdditionals.scss";
+import "./modal-content-cart.scss";
 
-export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
+export function ModalContentCartComponent({ product }: { product: IProduct }) {
   const [finalPrice, setFinalPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
 
-  const extras = useAppSelector((state) => state.products.extrasList).find(
+  const extrasList = useAppSelector((state) => state.products.extrasList).find(
     (element) => element.id === product.extrasID
   );
 
   const selectedExtras = useAppSelector(
     (state) => state.products.productSelected
   ).extras;
+
+  const dispatch = useAppDispatch();
 
   /** Calucle la Somme des prix contenu dans le tableau d'extras */
   function sumExtras() {
@@ -59,11 +62,11 @@ export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
 
       <div className="cart-modal-content-additional">
         <div className="cart-modal-content-additional-title">
-          Supp {extras?.type}
+          Supp {extrasList?.type}
         </div>
         <div className="cart-modal-content-additional-subtitle">Facultatif</div>
         <div className="cart-modal-content-additional-content">
-          {extras?.extras.map((item: IExtra, key: number) => (
+          {extrasList?.extras.map((item: IExtra, key: number) => (
             <div
               className="cart-modal-content-additional-content-item"
               key={key}
@@ -73,7 +76,20 @@ export function ChooseAdditionalComponent({ product }: { product: IProduct }) {
           ))}
         </div>
         <div className="cart-modal-content-price">
-          <div className="cart-modal-content-price-container">
+          <div
+            className="cart-modal-content-price-container"
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  id: 1,
+                  product: product,
+                  extras: selectedExtras,
+                  quantity: quantity,
+                  totalProduct: finalPrice,
+                })
+              )
+            }
+          >
             Valider ( {finalPrice.toFixed(2)} €)
           </div>
         </div>
