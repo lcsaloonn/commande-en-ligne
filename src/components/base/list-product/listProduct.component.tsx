@@ -5,11 +5,9 @@ import "./listProduct.scss";
 export function ListProductComponent({
   title,
   productList,
-  redirection,
 }: {
   title: string;
   productList: IProduct[];
-  redirection: any;
 }) {
   return (
     <div className="list-product">
@@ -18,7 +16,6 @@ export function ListProductComponent({
         {productList.map((item: IProduct, id: number) => (
           <div
             className="list-product-container-item col-span-9 xlp:col-span-6"
-            onClick={() => redirection()} // need to be move into productCardComponent
             key={id}
           >
             <ProductCardComponent product={item} isDisable={item.isAvalable} />

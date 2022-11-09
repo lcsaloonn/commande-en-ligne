@@ -4,7 +4,6 @@ import {
   ListProductComponent,
   ModalContentCartComponent,
 } from "components/base/zindex";
-import { useState } from "react";
 import { useAppSelector } from "states/hoocks";
 
 export function MainView() {
@@ -13,19 +12,11 @@ export function MainView() {
     (state) => state.products.productSelected
   ).product;
 
-  function triggerModal() {
-    //setOpenModal(!openModal);
-  }
-
   return (
-    <div className="main">
+    <div className="main main-container">
       <div className="main-view-body grid grid-cols-12 gap-4">
         <div className="main-view-body-products col-span-8">
-          <ListProductComponent
-            title={"Antipasti"}
-            productList={products}
-            redirection={triggerModal}
-          />
+          <ListProductComponent title={"Antipasti"} productList={products} />
         </div>
 
         <div className="main-view-body-cart col-span-4">
