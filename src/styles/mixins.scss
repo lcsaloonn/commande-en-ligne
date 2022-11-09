@@ -7,7 +7,9 @@
   font-size: $size;
   line-height: $lineHeight;
   letter-spacing: $letterSpacing;
-  font-weight: $fontweight;
+  @if $fontweight!=0 {
+    font-weight: $fontweight;
+  }
 }
 
 @mixin text-style(
