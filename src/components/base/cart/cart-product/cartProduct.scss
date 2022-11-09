@@ -36,15 +36,27 @@
       }
     }
   }
+
   &-name {
-    @include mixins.text-format(1rem, normal, normal, 600);
+    @include mixins.text-format(0.9rem, normal, normal, 600);
     text-transform: uppercase;
     color: var(--color-dark-blue);
     width: 65%;
     padding-left: 20px;
+    @screen md {
+      @include mixins.text-format(0.8rem, normal, normal, 600);
+      width: 40%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @screen lg {
+      width: 65%;
+      @include mixins.text-format(0.9rem, normal, normal, 600);
+    }
   }
   &-price {
-    @include mixins.text-format(1rem, normal, normal, 600);
+    @include mixins.text-format(0.8rem, normal, normal, 600);
     color: var(--color-dark-blue);
   }
   &-icon {
