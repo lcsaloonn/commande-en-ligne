@@ -51,7 +51,7 @@
       text-overflow: ellipsis;
     }
     @screen lg {
-      width: 65%;
+      width: 60%;
       @include mixins.text-format(0.9rem, normal, normal, 600);
     }
   }
