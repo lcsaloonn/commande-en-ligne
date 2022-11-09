@@ -47,14 +47,24 @@ export function CartComponent() {
       </div>
 
       <div className="cart-content">
-        <div className="cart-content-price">
+        <div
+          className={`cart-content-price ${
+            totalValueCart === 0 ? "invalide" : ""
+          }`}
+        >
           <span>Total :</span>
           <span>{totalValueCart.toFixed(2)} €</span>
         </div>
       </div>
 
       <div className="cart-footer">
-        <div className="cart-footer-btn">Valider</div>
+        <div
+          className={`cart-footer-btn ${
+            totalValueCart === 0 ? "invalide" : ""
+          }`}
+        >
+          Valider
+        </div>
       </div>
     </div>
   );

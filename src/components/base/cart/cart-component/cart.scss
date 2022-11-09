@@ -33,6 +33,9 @@
           float: right;
         }
       }
+      &.invalide {
+        color: var(--color-light-grey);
+      }
     }
   }
 
@@ -53,6 +56,10 @@
       border-radius: 28px;
       cursor: pointer;
       user-select: none;
+
+      &.invalide {
+        background-color: var(--color-light-grey);
+      }
     }
   }
 }
