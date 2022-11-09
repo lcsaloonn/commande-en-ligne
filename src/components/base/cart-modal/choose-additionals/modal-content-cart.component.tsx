@@ -82,7 +82,6 @@ export function ModalContentCartComponent({ product }: { product: IProduct }) {
             onClick={() => {
               dispatch(
                 addToCart({
-                  id: 1,
                   product: product,
                   extras: selectedExtras,
                   quantity: quantity,

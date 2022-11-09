@@ -3,13 +3,17 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./cartProduct.scss";
 
 export function CartProductComponent({
+  id,
   quantity,
   name,
   price,
+  onRemoveClick,
 }: {
+  id?: string;
   quantity: number;
   name: string;
   price: number;
+  onRemoveClick?: any;
 }) {
   return (
     <div className="cart-product">
@@ -24,7 +28,7 @@ export function CartProductComponent({
         <div className="cart-product-price">
           {price.toFixed(2).toString().replace(".", ",") + " €"}
         </div>
-        <div className="cart-product-icon">
+        <div className="cart-product-icon" onClick={() => onRemoveClick(id)}>
           <FontAwesomeIcon icon={faX} />
         </div>
       </div>
