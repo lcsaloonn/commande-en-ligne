@@ -1,21 +1,20 @@
 import {
   CartComponent,
   CartModalComponent,
-  ChooseAdditionalComponent,
   ListProductComponent,
+  ModalContentCartComponent,
 } from "components/base/zindex";
 import { useState } from "react";
 import { useAppSelector } from "states/hoocks";
 
 export function MainView() {
-  const [openModal, setOpenModal] = useState(false);
   const products = useAppSelector((state) => state.products).allProducts;
   const selectedProduct = useAppSelector(
     (state) => state.products.productSelected
   ).product;
 
   function triggerModal() {
-    setOpenModal(!openModal);
+    //setOpenModal(!openModal);
   }
 
   return (
@@ -32,11 +31,8 @@ export function MainView() {
         <div className="main-view-body-cart col-span-4">
           <CartComponent />
 
-          <CartModalComponent
-            open={openModal}
-            onClose={() => setOpenModal(false)}
-          >
-            <ChooseAdditionalComponent product={selectedProduct} />
+          <CartModalComponent>
+            <ModalContentCartComponent product={selectedProduct} />
           </CartModalComponent>
         </div>
       </div>
