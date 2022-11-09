@@ -19,6 +19,12 @@ input[type="checkbox"] {
 
 .main-container {
   @screen xl {
+    margin: 0 7rem;
+  }
+  @screen lg {
     margin: 0 5rem;
+  }
+  @screen md {
+    margin: 0 2rem;
   }
 }
