@@ -21,7 +21,7 @@ export function ListProductComponent({
             onClick={() => redirection()} // need to be move into productCardComponent
             key={id}
           >
-            <ProductCardComponent product={item} isDisable={item.isDisable} />
+            <ProductCardComponent product={item} isDisable={item.isAvalable} />
           </div>
         ))}
       </div>
