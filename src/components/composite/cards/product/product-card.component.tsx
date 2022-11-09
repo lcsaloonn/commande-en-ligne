@@ -1,3 +1,4 @@
+import { openModal } from "states/features/modal.slice";
 import { selectProduct } from "states/features/products.slice";
 import { useAppDispatch } from "states/hoocks";
 import { IProduct } from "types/product/product.interface";
@@ -16,7 +17,10 @@ export function ProductCardComponent({
   return (
     <div
       className={`product-card ${isDisable ? "disable" : ""}`}
-      onClick={() => dispatch(selectProduct(product))}
+      onClick={() => {
+        dispatch(selectProduct(product));
+        dispatch(openModal());
+      }}
     >
       <div className="product-card-content">
         <div

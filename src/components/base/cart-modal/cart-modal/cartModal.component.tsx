@@ -1,29 +1,26 @@
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { closeModal } from "states/features/modal.slice";
+import { useAppDispatch, useAppSelector } from "states/hoocks";
 
 import "./cartModal.scss";
 
-export function CartModalComponent({
-  open,
-  onClose,
-  children,
-}: {
-  open: boolean;
-  onClose: any;
-  children: JSX.Element;
-}) {
-  if (open) document.body.classList.add("active-modal");
+export function CartModalComponent({ children }: { children: JSX.Element }) {
+  const isOpen = useAppSelector((state) => state.modal.isOpen);
+  const dispatch = useAppDispatch();
+
+  if (isOpen) document.body.classList.add("active-modal");
   else document.body.classList.remove("active-modal");
-  if (!open) return null;
+  if (!isOpen) return null;
 
   return (
     <>
-      {open && (
+      {isOpen && (
         <div className="cart-modal">
-          <div onClick={onClose} className="overlay"></div>
+          <div onClick={() => dispatch(closeModal())} className="overlay"></div>
           <div className="cart-modal-content">
             {children}
-            <div className="close-modal" onClick={onClose}>
+            <div className="close-modal" onClick={() => dispatch(closeModal())}>
               <FontAwesomeIcon className="button-go-back-icon" icon={faX} />
             </div>
           </div>
