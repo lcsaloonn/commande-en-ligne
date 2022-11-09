@@ -6,6 +6,6 @@ export interface IProduct {
   ingredients: string;
   price: number;
   extrasID: number;
-  isDisable: boolean;
+  isAvalable: boolean;
   img: IImage;
 }
