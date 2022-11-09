@@ -2,6 +2,7 @@ import { AdditionalsComponent } from "components/composite/cards/zindex";
 import { LessMoreComponent } from "components/composite/zindex";
 import { useEffect, useState } from "react";
 import { addToCart } from "states/features/cart.slice";
+import { closeModal } from "states/features/modal.slice";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { IExtra } from "types/product/extras.interface";
 import { IProduct } from "types/product/product.interface";
@@ -78,7 +79,7 @@ export function ModalContentCartComponent({ product }: { product: IProduct }) {
         <div className="cart-modal-content-price">
           <div
             className="cart-modal-content-price-container"
-            onClick={() =>
+            onClick={() => {
               dispatch(
                 addToCart({
                   id: 1,
@@ -87,8 +88,9 @@ export function ModalContentCartComponent({ product }: { product: IProduct }) {
                   quantity: quantity,
                   totalProduct: finalPrice,
                 })
-              )
-            }
+              );
+              dispatch(closeModal());
+            }}
           >
             Valider ( {finalPrice.toFixed(2)} €)
           </div>
