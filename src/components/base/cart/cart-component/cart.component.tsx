@@ -34,16 +34,19 @@ export function CartComponent() {
       </div>
 
       <div className="cart-content-product">
-        {cartListProducts.items.map((element: ICartItem, key: number) => (
-          <CartProductComponent
-            id={element.id}
-            quantity={element.quantity}
-            name={element.product.title}
-            price={element.totalProduct}
-            onRemoveClick={removeFormCartList}
-            key={key}
-          />
-        ))}
+        {cartListProducts.items.map((element: ICartItem, key: number) => {
+          return (
+            <CartProductComponent
+              id={element.id}
+              quantity={element.quantity}
+              name={element.product.title}
+              price={element.totalProduct}
+              extras={element.extras?.map((element) => element.name)}
+              onRemoveClick={removeFormCartList}
+              key={key}
+            />
+          );
+        })}
       </div>
 
       <div className="cart-content">
