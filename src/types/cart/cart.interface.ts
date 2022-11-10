@@ -10,7 +10,7 @@ export interface ICart {
 export interface ICartItem {
   id?: string;
   product: IProduct;
-  extras: IExtra[] | null;
+  extras: IExtra[];
   quantity: number;
   totalProduct: number;
 }

@@ -19,7 +19,7 @@ export const productSlice = createSlice({
     extrasList: extras,
   },
   reducers: {
-    selectFullProduct: (state, action: PayloadAction<ProductSelected>) => {
+    updateSelectProduct: (state, action: PayloadAction<ProductSelected>) => {
       state.productSelected = action.payload;
     },
     selectProduct: (state, action: PayloadAction<IProduct>) => {
@@ -47,7 +47,7 @@ export const productSlice = createSlice({
 
 export const {
   selectProduct,
-  selectFullProduct,
+  updateSelectProduct,
   addExtraToProductSelected,
   removeExtraToProductSelected,
 } = productSlice.actions;

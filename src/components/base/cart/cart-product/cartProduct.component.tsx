@@ -4,7 +4,7 @@ import "./cartProduct.scss";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { openModal } from "states/features/modal.slice";
-import { selectProduct } from "states/features/products.slice";
+import { updateSelectProduct } from "states/features/products.slice";
 
 const mocktest = ["Jambon Parma", "Jambon Parma", "Jambon Parma"];
 export function CartProductComponent({
@@ -26,7 +26,7 @@ export function CartProductComponent({
   const product = useAppSelector((state) =>
     state.cart.items.find((element) => element.id === id)
   );
-  console.log(product);
+
   const dispatch = useAppDispatch();
 
   return (
@@ -41,7 +41,17 @@ export function CartProductComponent({
         <div
           className="cart-product-name"
           onClick={() => {
-            dispatch(openModal()); /*dispatch(selectProduct(product)*/
+            if (product != undefined) {
+              dispatch(
+                updateSelectProduct({
+                  product: product?.product,
+                  extras: product?.extras,
+                  quantity: product?.quantity,
+                  totalProduct: product?.totalProduct,
+                })
+              );
+              dispatch(openModal());
+            }
           }}
         >
           {name}
