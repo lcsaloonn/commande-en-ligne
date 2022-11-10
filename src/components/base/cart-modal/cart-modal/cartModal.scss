@@ -1,13 +1,22 @@
 .cart-modal-content {
   position: fixed;
   height: auto;
-  width: 23%;
+  width: 100%;
   bottom: 0;
-  right: 7%;
   background-color: #ececef;
   border-radius: 35px 0 0 0;
   max-height: 600px;
   overflow-y: scroll;
+
+  @screen lg {
+    width: 380px;
+    right: 7%;
+  }
+
+  @screen xl {
+    width: 390px;
+    right: 7%;
+  }
 }
 
 .cart-modal,

@@ -1,12 +1,14 @@
 import { AdditionalsComponent } from "components/composite/cards/zindex";
-import { LessMoreComponent } from "components/composite/zindex";
+import {
+  BasicButtonComponent,
+  LessMoreComponent,
+} from "components/composite/zindex";
 import { useEffect, useState } from "react";
-import { addToCart } from "states/features/cart.slice";
+import { addToCart, updateProductFromCart } from "states/features/cart.slice";
 import { closeModal } from "states/features/modal.slice";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { IExtra } from "types/product/extras.interface";
 import { ProductSelected } from "types/product/productSelected.interface";
-
 import "./modal-content-cart.scss";
 
 export function ModalContentCartComponent({
@@ -21,16 +23,12 @@ export function ModalContentCartComponent({
     (element) => element.id === productSelected.product.extrasID
   );
 
-  const selectedExtras = useAppSelector(
-    (state) => state.products.productSelected
-  ).extras;
-
   const dispatch = useAppDispatch();
 
   /** Calucle la Somme des prix contenu dans le tableau d'extras */
   function sumExtras() {
     let sum = 0;
-    selectedExtras.forEach((element) => {
+    productSelected.extras.forEach((element) => {
       sum += element.price;
     });
     return sum;
@@ -48,7 +46,26 @@ export function ModalContentCartComponent({
    */
   useEffect(() => {
     setFinalPrice((productSelected.product.price + sumExtras()) * quantity);
-  }, [quantity, selectedExtras]);
+  }, [quantity, productSelected.extras]);
+
+  /**
+   * action for btn
+   */
+  function sendData() {
+    const data = {
+      product: productSelected.product,
+      extras: productSelected.extras,
+      quantity: quantity,
+      totalProduct: finalPrice,
+      isBeeingUpdate: false,
+    };
+    if (productSelected.isBeeingUpdate === true) {
+      dispatch(updateProductFromCart(data));
+    } else {
+      dispatch(addToCart(data));
+    }
+    dispatch(closeModal());
+  }
 
   return (
     <>
@@ -64,7 +81,7 @@ export function ModalContentCartComponent({
         <LessMoreComponent
           min={1}
           max={100}
-          defaultNumber={1}
+          defaultNumber={productSelected.quantity}
           returnQuantity={returnQuantity}
         />
       </div>
@@ -85,22 +102,11 @@ export function ModalContentCartComponent({
           ))}
         </div>
         <div className="cart-modal-content-price">
-          <div
-            className="cart-modal-content-price-container"
-            onClick={() => {
-              dispatch(
-                addToCart({
-                  product: productSelected.product,
-                  extras: selectedExtras,
-                  quantity: quantity,
-                  totalProduct: finalPrice,
-                })
-              );
-              dispatch(closeModal());
-            }}
-          >
-            Valider ( {finalPrice.toFixed(2)} €)
-          </div>
+          <BasicButtonComponent
+            text="Valider"
+            price={finalPrice}
+            action={sendData}
+          />
         </div>
       </div>
     </>
