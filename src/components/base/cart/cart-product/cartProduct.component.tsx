@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./cartProduct.scss";
 import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "states/hoocks";
+import { openModal } from "states/features/modal.slice";
+import { selectProduct } from "states/features/products.slice";
 
 const mocktest = ["Jambon Parma", "Jambon Parma", "Jambon Parma"];
 export function CartProductComponent({
@@ -20,6 +23,11 @@ export function CartProductComponent({
   onRemoveClick?: any;
 }) {
   const [openExtras, setOpenExtras] = useState(false);
+  const product = useAppSelector((state) =>
+    state.cart.items.find((element) => element.id === id)
+  );
+  console.log(product);
+  const dispatch = useAppDispatch();
 
   return (
     <div className="cart-container">
@@ -30,7 +38,14 @@ export function CartProductComponent({
             <span>x</span>
           </div>
         </div>
-        <div className="cart-product-name">{name}</div>
+        <div
+          className="cart-product-name"
+          onClick={() => {
+            dispatch(openModal()); /*dispatch(selectProduct(product)*/
+          }}
+        >
+          {name}
+        </div>
         <div className="flex  m-auto ">
           <div className="cart-product-price">
             {price.toFixed(2).toString().replace(".", ",") + " €"}
