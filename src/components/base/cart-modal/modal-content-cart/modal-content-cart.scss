@@ -16,14 +16,21 @@
   }
   &-quantity {
     display: flex;
+    justify-content: center;
     background-color: var(--color-white);
     margin: 20px 0 20px 30%;
-    padding: 12px 0 12px 12px;
+    padding: 12px 5px 12px 12px;
     border-radius: 45px 0 0 45px;
+    @screen lg {
+      justify-content: right;
+    }
     span {
-      @include mixins.text-format(1.1rem, normal, normal, 0);
+      @include mixins.text-format(1rem, normal, normal, 0);
       color: var(--color-dark-blue);
       margin: auto 20px;
+      @screen md {
+        @include mixins.text-format(1.1rem, normal, normal, 0);
+      }
     }
   }
 
