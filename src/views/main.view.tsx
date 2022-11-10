@@ -10,7 +10,7 @@ export function MainView() {
   const products = useAppSelector((state) => state.products).allProducts;
   const selectedProduct = useAppSelector(
     (state) => state.products.productSelected
-  ).product;
+  );
 
   return (
     <div className="main main-container">
@@ -23,7 +23,7 @@ export function MainView() {
           <CartComponent />
 
           <CartModalComponent>
-            <ModalContentCartComponent product={selectedProduct} />
+            <ModalContentCartComponent productSelected={selectedProduct} />
           </CartModalComponent>
         </div>
       </div>

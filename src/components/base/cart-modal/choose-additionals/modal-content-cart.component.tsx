@@ -5,16 +5,20 @@ import { addToCart } from "states/features/cart.slice";
 import { closeModal } from "states/features/modal.slice";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { IExtra } from "types/product/extras.interface";
-import { IProduct } from "types/product/product.interface";
+import { ProductSelected } from "types/product/productSelected.interface";
 
 import "./modal-content-cart.scss";
 
-export function ModalContentCartComponent({ product }: { product: IProduct }) {
-  const [finalPrice, setFinalPrice] = useState(product.price);
+export function ModalContentCartComponent({
+  productSelected,
+}: {
+  productSelected: ProductSelected;
+}) {
+  const [finalPrice, setFinalPrice] = useState(productSelected.product.price);
   const [quantity, setQuantity] = useState(1);
 
   const extrasList = useAppSelector((state) => state.products.extrasList).find(
-    (element) => element.id === product.extrasID
+    (element) => element.id === productSelected.product.extrasID
   );
 
   const selectedExtras = useAppSelector(
@@ -43,13 +47,17 @@ export function ModalContentCartComponent({ product }: { product: IProduct }) {
    * Calcule le prix en à chaque modification de quantity ou selectedExtras
    */
   useEffect(() => {
-    setFinalPrice((product.price + sumExtras()) * quantity);
+    setFinalPrice((productSelected.product.price + sumExtras()) * quantity);
   }, [quantity, selectedExtras]);
 
   return (
     <>
-      <div className="cart-modal-content-title">{product.title}</div>
-      <div className="cart-modal-content-ingredient">{product.ingredients}</div>
+      <div className="cart-modal-content-title">
+        {productSelected.product.title}
+      </div>
+      <div className="cart-modal-content-ingredient">
+        {productSelected.product.ingredients}
+      </div>
 
       <div className="cart-modal-content-quantity">
         <span>Quantité :</span>
@@ -82,7 +90,7 @@ export function ModalContentCartComponent({ product }: { product: IProduct }) {
             onClick={() => {
               dispatch(
                 addToCart({
-                  product: product,
+                  product: productSelected.product,
                   extras: selectedExtras,
                   quantity: quantity,
                   totalProduct: finalPrice,
