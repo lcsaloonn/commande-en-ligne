@@ -5,27 +5,19 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { openModal } from "states/features/modal.slice";
 import { updateSelectProduct } from "states/features/products.slice";
+import { ICartItem } from "types/cart/cart.interface";
 
 const mocktest = ["Jambon Parma", "Jambon Parma", "Jambon Parma"];
 export function CartProductComponent({
-  id,
-  quantity,
-  name,
-  price,
-  extras,
+  cartItem,
   onRemoveClick,
 }: {
-  id?: string;
-  quantity: number;
-  name: string;
-  price: number;
-  extras?: string[];
+  cartItem: ICartItem;
   onRemoveClick?: any;
 }) {
   const [openExtras, setOpenExtras] = useState(false);
-  const product = useAppSelector((state) =>
-    state.cart.items.find((element) => element.id === id)
-  );
+  const { quantity, product, extras, totalProduct } = cartItem.item;
+  const extrasList = extras.map((element) => element.name);
 
   const dispatch = useAppDispatch();
 
@@ -41,32 +33,37 @@ export function CartProductComponent({
         <div
           className="cart-product-name"
           onClick={() => {
-            if (product != undefined) {
+            if (product !== undefined) {
               dispatch(
                 updateSelectProduct({
-                  product: product?.product,
-                  extras: product?.extras,
-                  quantity: product?.quantity,
-                  totalProduct: product?.totalProduct,
+                  cartID: cartItem.id,
+                  product: product,
+                  extras: extras,
+                  quantity: quantity,
+                  totalProduct: totalProduct,
+                  isBeeingUpdate: true,
                 })
               );
               dispatch(openModal());
             }
           }}
         >
-          {name}
+          {product.title}
         </div>
         <div className="flex  m-auto ">
           <div className="cart-product-price">
-            {price.toFixed(2).toString().replace(".", ",") + " €"}
+            {totalProduct.toFixed(2).toString().replace(".", ",") + " €"}
           </div>
-          <div className="cart-product-icon" onClick={() => onRemoveClick(id)}>
+          <div
+            className="cart-product-icon"
+            onClick={() => onRemoveClick(cartItem.id)}
+          >
             <FontAwesomeIcon icon={faX} />
           </div>
         </div>
       </div>
       <div className={extras?.length ? "cart-product-extras" : "hidden"}>
-        {extras?.map((element: string, count: number) => {
+        {extrasList?.map((element: string, count: number) => {
           const max = openExtras ? mocktest.length : 1;
           return (
             <i className={count > max ? "hidden" : ""} key={count}>

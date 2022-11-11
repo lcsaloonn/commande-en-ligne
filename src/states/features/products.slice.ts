@@ -23,10 +23,13 @@ export const productSlice = createSlice({
       state.productSelected = action.payload;
     },
     selectProduct: (state, action: PayloadAction<IProduct>) => {
-      state.productSelected.product = action.payload;
-      state.productSelected.extras = [];
-      state.productSelected.quantity = 0;
-      state.productSelected.totalProduct = 0;
+      state.productSelected = {
+        product: action.payload,
+        extras: [],
+        quantity: 1,
+        totalProduct: 0,
+        isBeeingUpdate: false,
+      };
     },
 
     addExtraToProductSelected: (state, action: PayloadAction<IExtra>) => {

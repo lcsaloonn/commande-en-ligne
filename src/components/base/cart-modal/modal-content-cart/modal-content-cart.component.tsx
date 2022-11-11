@@ -52,7 +52,8 @@ export function ModalContentCartComponent({
    * action for btn
    */
   function sendData() {
-    const data = {
+    const data: ProductSelected = {
+      cartID: productSelected.cartID,
       product: productSelected.product,
       extras: productSelected.extras,
       quantity: quantity,

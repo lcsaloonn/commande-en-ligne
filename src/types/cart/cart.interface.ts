@@ -1,5 +1,4 @@
-import { IExtra } from "types/product/extras.interface";
-import { IProduct } from "types/product/product.interface";
+import { ProductSelected } from "types/product/productSelected.interface";
 
 export interface ICart {
   items: ICartItem[];
@@ -8,9 +7,12 @@ export interface ICart {
 }
 
 export interface ICartItem {
-  id?: string;
-  product: IProduct;
-  extras: IExtra[];
-  quantity: number;
-  totalProduct: number;
+  id: string;
+  item: ProductSelected;
 }
+
+export const initialCart: ICart = {
+  items: [] as ICartItem[],
+  amountItems: 0,
+  total: 0,
+};

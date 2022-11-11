@@ -18,7 +18,7 @@ export function CartComponent() {
   function somtotalValueCart() {
     let total = 0;
     cartListProducts.items.forEach((items) => {
-      total += items.totalProduct;
+      total += items.item.totalProduct;
     });
     setTotalValueCart(total);
   }
@@ -37,12 +37,8 @@ export function CartComponent() {
         {cartListProducts.items.map((element: ICartItem, key: number) => {
           return (
             <CartProductComponent
-              id={element.id}
-              quantity={element.quantity}
-              name={element.product.title}
-              price={element.totalProduct}
-              extras={element.extras?.map((element) => element.name)}
               onRemoveClick={removeFormCartList}
+              cartItem={element}
               key={key}
             />
           );
