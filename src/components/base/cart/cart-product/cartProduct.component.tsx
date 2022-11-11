@@ -65,7 +65,6 @@ export function CartProductComponent({
       <div className={extras?.length ? "cart-product-extras" : "hidden"}>
         {extrasList?.map((element: string, count: number) => {
           const max = openExtras ? mocktest.length + 1 : 1;
-          console.log(max);
           return (
             <i className={count > max ? "hidden" : ""} key={count}>
               {element}
