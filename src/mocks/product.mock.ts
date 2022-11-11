@@ -88,7 +88,7 @@ export const productMock: IProduct[] = [
   {
     id: 7,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    category: ProductCategory.STARTERS,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
