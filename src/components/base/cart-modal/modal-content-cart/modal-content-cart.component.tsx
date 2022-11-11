@@ -17,7 +17,7 @@ export function ModalContentCartComponent({
   productSelected: ProductSelected;
 }) {
   const [finalPrice, setFinalPrice] = useState(productSelected.product.price);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(productSelected.quantity);
 
   const extrasList = useAppSelector((state) => state.products.extrasList).find(
     (element) => element.id === productSelected.product.extrasID
@@ -45,7 +45,9 @@ export function ModalContentCartComponent({
    * Calcule le prix en à chaque modification de quantity ou selectedExtras
    */
   useEffect(() => {
-    setFinalPrice((productSelected.product.price + sumExtras()) * quantity);
+    if (quantity && quantity > 0) {
+      setFinalPrice((productSelected.product.price + sumExtras()) * quantity);
+    }
   }, [quantity, productSelected.extras]);
 
   /**
@@ -93,14 +95,24 @@ export function ModalContentCartComponent({
         </div>
         <div className="cart-modal-content-additional-subtitle">Facultatif</div>
         <div className="cart-modal-content-additional-content">
-          {extrasList?.extras.map((item: IExtra, key: number) => (
-            <div
-              className="cart-modal-content-additional-content-item"
-              key={key}
-            >
-              <AdditionalsComponent extraObject={item} />
-            </div>
-          ))}
+          {extrasList?.extras.map((item: IExtra, key: number) => {
+            let isChecked = false;
+            if (productSelected.extras.includes(item)) {
+              isChecked = true;
+            }
+
+            return (
+              <div
+                className="cart-modal-content-additional-content-item"
+                key={key}
+              >
+                <AdditionalsComponent
+                  extraObject={item}
+                  checkedByDefault={isChecked}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="cart-modal-content-price">
           <BasicButtonComponent

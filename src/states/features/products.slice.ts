@@ -33,15 +33,19 @@ export const productSlice = createSlice({
     },
 
     addExtraToProductSelected: (state, action: PayloadAction<IExtra>) => {
-      state.productSelected.extras.push(action.payload);
+      if (
+        state.productSelected.extras.findIndex(
+          (element) => element.id === action.payload.id
+        ) === -1
+      ) {
+        state.productSelected.extras.push(action.payload);
+      }
     },
     removeExtraToProductSelected: (state, action: PayloadAction<IExtra>) => {
-      if (state.productSelected.extras.length) {
-        const indexToRemove = state.productSelected.extras.findIndex(
-          (object) => {
-            return object.id === action.payload.id;
-          }
-        );
+      const indexToRemove = state.productSelected.extras.findIndex((object) => {
+        return object.id === action.payload.id;
+      });
+      if (indexToRemove !== -1) {
         state.productSelected.extras.splice(indexToRemove, 1);
       }
     },

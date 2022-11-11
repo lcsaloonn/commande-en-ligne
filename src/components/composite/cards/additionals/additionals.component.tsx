@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   addExtraToProductSelected,
   removeExtraToProductSelected,
@@ -7,19 +7,28 @@ import { useAppDispatch } from "states/hoocks";
 import { IExtra } from "types/product/extras.interface";
 import "./additionals.scss";
 
-export function AdditionalsComponent({ extraObject }: { extraObject: IExtra }) {
-  const [isChecked, setIsChecked] = useState(extraObject.isSelected);
+export function AdditionalsComponent({
+  extraObject,
+  checkedByDefault,
+}: {
+  extraObject: IExtra;
+  checkedByDefault: boolean;
+}) {
+  const [isChecked, setIsChecked] = useState(checkedByDefault);
   const dispatch = useAppDispatch();
+  const firstUpdate = useRef(true);
 
   function handleChange(event: any) {
     setIsChecked(event.target.checked);
   }
 
   useEffect(() => {
-    if (isChecked === true) {
-      dispatch(addExtraToProductSelected(extraObject));
-    } else {
-      dispatch(removeExtraToProductSelected(extraObject));
+    if (firstUpdate.current) {
+      if (isChecked === true) {
+        dispatch(addExtraToProductSelected(extraObject));
+      } else {
+        dispatch(removeExtraToProductSelected(extraObject));
+      }
     }
   }, [isChecked]);
 
@@ -28,7 +37,9 @@ export function AdditionalsComponent({ extraObject }: { extraObject: IExtra }) {
       <input type="checkbox" checked={isChecked} onChange={handleChange} />
       <div
         className="additionals-name"
-        onClick={() => setIsChecked(!isChecked)}
+        onClick={() => {
+          setIsChecked(!isChecked);
+        }}
       >
         Supp {extraObject.name}
       </div>
