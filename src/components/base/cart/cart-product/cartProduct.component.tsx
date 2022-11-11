@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import "./cartProduct.scss";
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "states/hoocks";
+import { useAppDispatch } from "states/hoocks";
 import { openModal } from "states/features/modal.slice";
 import { updateSelectProduct } from "states/features/products.slice";
 import { ICartItem } from "types/cart/cart.interface";
@@ -64,7 +64,8 @@ export function CartProductComponent({
       </div>
       <div className={extras?.length ? "cart-product-extras" : "hidden"}>
         {extrasList?.map((element: string, count: number) => {
-          const max = openExtras ? mocktest.length : 1;
+          const max = openExtras ? mocktest.length + 1 : 1;
+          console.log(max);
           return (
             <i className={count > max ? "hidden" : ""} key={count}>
               {element}
