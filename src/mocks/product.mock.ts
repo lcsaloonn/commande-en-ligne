@@ -1,10 +1,10 @@
-import { IProduct, ProductCategory } from "types/product/product.interface";
+import { IProduct } from "types/product/product.interface";
 
 export const productMock: IProduct[] = [
   {
     id: 1,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 1,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -18,7 +18,7 @@ export const productMock: IProduct[] = [
   {
     id: 2,
     title: "BUSTINA POLLO",
-    category: ProductCategory.MAIN,
+    categoryID: 3,
     ingredients:
       "Mozza fior di latte, Poulet fermier, provolone fumé, oignons rouges, parmigiano reggiano 22 mois AOP, tomates confites, roquette, crème de balsamique.",
     price: 14.0,
@@ -32,7 +32,7 @@ export const productMock: IProduct[] = [
   {
     id: 3,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 4,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -46,7 +46,7 @@ export const productMock: IProduct[] = [
   {
     id: 4,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 5,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -60,7 +60,7 @@ export const productMock: IProduct[] = [
   {
     id: 5,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 6,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -74,7 +74,7 @@ export const productMock: IProduct[] = [
   {
     id: 6,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 72,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -88,7 +88,7 @@ export const productMock: IProduct[] = [
   {
     id: 7,
     title: "BUSTINA PARMA",
-    category: ProductCategory.STARTERS,
+    categoryID: 2,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
@@ -102,7 +102,7 @@ export const productMock: IProduct[] = [
   {
     id: 8,
     title: "BUSTINA PARMA",
-    category: ProductCategory.MAIN,
+    categoryID: 2,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
