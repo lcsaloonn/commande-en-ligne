@@ -37,8 +37,12 @@ export function ProductCardComponent({
           {isDisable ? "indisponible" : product.price.toFixed(2) + " €"}
         </div>
       </div>
-      <div className={`product-card-image ${isDisable ? "disable" : ""}`}>
-        <img src={product.img.link} alt={product.img.alt} />
+      <div
+        className={`${product.img ? "product-card-image" : "hidden"} ${
+          isDisable ? "disable" : ""
+        } `}
+      >
+        <img src={product.img?.link} alt={product.img?.alt} />
       </div>
     </div>
   );

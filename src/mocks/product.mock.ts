@@ -16,6 +16,105 @@ export const productMock: IProduct[] = [
     },
   },
   {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+  {
+    id: 1,
+    title: "BUSTINA PARMA",
+    categoryID: 1,
+    ingredients:
+      " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
+    price: 44.0,
+    extrasID: 1,
+    isAvalable: false,
+    img: {
+      link: "../assets/test-produit.jpg",
+      alt: "#",
+    },
+  },
+
+  {
     id: 2,
     title: "BUSTINA POLLO",
     categoryID: 3,
@@ -74,16 +173,12 @@ export const productMock: IProduct[] = [
   {
     id: 6,
     title: "BUSTINA PARMA",
-    categoryID: 72,
+    categoryID: 7,
     ingredients:
       " Mozza fior di latte, Saumon frais, crème de mascarpone citronnée, ciboulette & échalotes coupées finement, épinard frais, parmigiano reggiano 22 mois AOP, tomates cerises.",
     price: 44.0,
     extrasID: 1,
     isAvalable: false,
-    img: {
-      link: "../assets/test-produit.jpg",
-      alt: "#",
-    },
   },
   {
     id: 7,
