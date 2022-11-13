@@ -1,10 +1,11 @@
+import { NavBarComponent } from "components/base/zindex";
 import { Routes, Route } from "react-router-dom";
 import { MainView } from "views/main.view";
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <NavBarComponent />
 
       <div className="app">
         <Routes>
