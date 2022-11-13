@@ -26,5 +26,5 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
