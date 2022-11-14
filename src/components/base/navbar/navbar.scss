@@ -61,7 +61,7 @@
   &-right {
     float: right;
     height: auto;
-    width: 30%;
+    width: 28%;
     display: none;
 
     @screen md {
@@ -75,4 +75,19 @@
       width: 100%;
     }
   }
+}
+
+.nav-bar-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background-image: linear-gradient(
+    to top,
+    rgb(236, 236, 239),
+    rgb(255, 255, 255)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
