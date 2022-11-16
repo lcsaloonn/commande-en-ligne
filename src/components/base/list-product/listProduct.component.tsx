@@ -19,7 +19,7 @@ export function ListProductComponent({
             className="list-product-container-item col-span-9 xlp:col-span-6"
             key={id}
           >
-            <ProductCardComponent product={item} isDisable={item.isAvalable} />
+            <ProductCardComponent product={item} isDisable={!item.isAvalable} />
           </div>
         ))}
       </div>
