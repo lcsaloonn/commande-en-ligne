@@ -19,7 +19,7 @@ export function MainView() {
   function findProductBycateogory(idCategory: number) {
     let array: IProduct[] = [];
     products.forEach((element) => {
-      if (element.id === idCategory) {
+      if (element.categoryID === idCategory) {
         array.push(element);
       }
     });
