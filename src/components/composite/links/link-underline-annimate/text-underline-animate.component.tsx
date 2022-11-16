@@ -1,6 +1,6 @@
 import "./text-underline-animation.scss";
 
-export function TextUnderlineAnimation({
+export function LinkUnderlineAnimation({
   text,
   isActivate,
 }: {

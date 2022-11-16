@@ -47,7 +47,7 @@ export function NavBarComponent() {
   else
     return (
       <div className="fixed top-0 w-full h-auto">
-        <div className="nav-bar-sticky" ref={menu}>
+        <div className="nav-bar-sticky relative" ref={menu}>
           <NavBarScrollComponent category={productCategory} />
         </div>
       </div>

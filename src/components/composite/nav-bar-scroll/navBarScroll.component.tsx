@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./navBarScroll.scss";
 import { useRef } from "react";
-import { TextUnderlineAnimation } from "../text/zindex";
+import { LinkUnderlineAnimation } from "../links/z-index";
 
 export function NavBarScrollComponent({
   category,
@@ -28,7 +28,7 @@ export function NavBarScrollComponent({
       />
       <div className="nav-bar-scroll-items scrollbar-hide" ref={slider}>
         {category.map((element, number) => (
-          <TextUnderlineAnimation
+          <LinkUnderlineAnimation
             text={element.name}
             isActivate={true}
             key={number}
