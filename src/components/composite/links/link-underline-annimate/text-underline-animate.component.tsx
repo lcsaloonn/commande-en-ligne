@@ -1,4 +1,5 @@
 import "./text-underline-animation.scss";
+import { Link as Scroll } from "react-scroll";
 
 export function LinkUnderlineAnimation({
   text,
@@ -9,8 +10,15 @@ export function LinkUnderlineAnimation({
 }) {
   return (
     // surligné quand hover ou quand is activate is true
-    <a className="text-underline-a" href={`#${text}`}>
+    <Scroll
+      className="text-underline-a"
+      to={text}
+      spy={true}
+      offset={50}
+      smooth={true}
+      duration={500}
+    >
       {text}
-    </a>
+    </Scroll>
   );
 }
