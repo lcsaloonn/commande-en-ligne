@@ -1,5 +1,5 @@
 import { NavBarScrollComponent } from "components/composite/zindex";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppSelector } from "states/hoocks";
 import "./navbar.scss";
 
@@ -8,14 +8,19 @@ export function NavBarComponent() {
   const productCategory = useAppSelector(
     (state) => state.category.productCategory
   );
-
+  const menu = useRef<HTMLInputElement>(null);
+  // menu.current.offsetTop
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200 && isScroll === false) {
-        setIsScroll(true);
-      } else if (window.scrollY < 200 && isScroll === true) {
-        setIsScroll(false);
-      }
+      if (menu.current)
+        if (window.scrollY >= menu.current.offsetTop && isScroll === false) {
+          setIsScroll(true);
+        } else if (
+          window.scrollY < menu.current.offsetTop + 10 &&
+          isScroll === true
+        ) {
+          setIsScroll(false);
+        }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,7 +35,7 @@ export function NavBarComponent() {
             <span>Ristorante & Pizza</span>
           </div>
 
-          <div className="nav-bar-links">
+          <div className="nav-bar-links" ref={menu}>
             <NavBarScrollComponent category={productCategory} />
           </div>
         </div>
@@ -41,8 +46,10 @@ export function NavBarComponent() {
     );
   else
     return (
-      <div className="nav-bar-sticky">
-        <NavBarScrollComponent category={productCategory} />
+      <div className="fixed top-0 test">
+        <div className="nav-bar-sticky" ref={menu}>
+          <NavBarScrollComponent category={productCategory} />
+        </div>
       </div>
     );
 }
