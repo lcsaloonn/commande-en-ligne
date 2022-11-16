@@ -14,7 +14,7 @@ export function LinkUnderlineAnimation({
       className="text-underline-a"
       to={text}
       spy={true}
-      offset={50}
+      offset={-100}
       smooth={true}
       duration={500}
     >
