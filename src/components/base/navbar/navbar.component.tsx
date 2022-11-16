@@ -39,7 +39,6 @@ export function NavBarComponent() {
         </div>
       </div>
     );
-  // with styky
   else
     return (
       <div className="nav-bar-sticky">

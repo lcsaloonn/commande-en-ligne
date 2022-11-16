@@ -1,0 +1,35 @@
+.text-underline-a {
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-white);
+  font-family: Nunito Sans, sans-serif;
+  letter-spacing: 0.5px;
+  margin: 0 12px;
+  padding: 0 5px;
+  @screen md {
+    color: var(--color-red);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: var(--color-white);
+    width: 0;
+    left: 0;
+    bottom: -1px;
+    height: 3px;
+    transition: 0.3s;
+    @screen md {
+      background-color: var(--color-red);
+    }
+  }
+
+  &:hover,
+  .active {
+    transform: scale(1.2);
+    font-weight: 800;
+    &:after {
+      width: 100%;
+    }
+  }
+}

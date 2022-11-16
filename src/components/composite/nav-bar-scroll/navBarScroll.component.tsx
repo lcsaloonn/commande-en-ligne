@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./navBarScroll.scss";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { TextUnderlineAnimation } from "../text/zindex";
 
 export function NavBarScrollComponent({
   category,
@@ -26,18 +26,13 @@ export function NavBarScrollComponent({
         className="nav-bar-scroll-icons"
         onClick={() => slide("left")}
       />
-      <div
-        ref={slider}
-        className="h-full w-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide "
-      >
+      <div className="nav-bar-scroll-items scrollbar-hide" ref={slider}>
         {category.map((element, number) => (
-          <Link
-            className="nav-bar-scroll-item items-center"
+          <TextUnderlineAnimation
+            text={element.name}
+            isActivate={true}
             key={number}
-            to={"#"}
-          >
-            {element.name}
-          </Link>
+          />
         ))}
       </div>
       <FontAwesomeIcon
