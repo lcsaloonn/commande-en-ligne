@@ -50,7 +50,7 @@ export const productMock: IProduct[] = [
     price: 7.0,
     isAvalable: false,
     img: {
-      link: "../assets/img/product-img/petit-apin-maison.jpg",
+      link: "../assets/img/product-img/petit-pain-maison.jpeg",
       alt: "petit pain maison",
     },
   },
