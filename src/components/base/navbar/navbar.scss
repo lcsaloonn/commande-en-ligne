@@ -26,11 +26,11 @@
     }
   }
   &-title {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem auto 1.5rem;
     display: flex;
     flex-direction: column;
     @screen md {
-      padding: 3rem 6.5rem;
+      padding: 3rem 6.5rem 3rem 6.5rem;
     }
     span {
       color: var(--color-white);
