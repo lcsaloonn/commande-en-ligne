@@ -9,7 +9,6 @@ export function NavBarComponent() {
     (state) => state.category.productCategory
   );
   const menu = useRef<HTMLInputElement>(null);
-  // menu.current.offsetTop
   useEffect(() => {
     const handleScroll = () => {
       if (menu.current)
