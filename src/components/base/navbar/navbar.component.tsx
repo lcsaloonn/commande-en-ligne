@@ -9,13 +9,17 @@ export function NavBarComponent() {
     (state) => state.category.productCategory
   );
   const menu = useRef<HTMLInputElement>(null);
+  const nav = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const handleScroll = () => {
-      if (menu.current)
-        if (window.scrollY >= menu.current.offsetTop && isScroll === false) {
+      if (menu.current && nav.current)
+        if (
+          window.scrollY >= nav.current.offsetTop - 10 &&
+          isScroll === false
+        ) {
           setIsScroll(true);
         } else if (
-          window.scrollY < menu.current.offsetTop + 10 &&
+          window.scrollY < menu.current.offsetHeight - 10 &&
           isScroll === true
         ) {
           setIsScroll(false);
@@ -25,29 +29,24 @@ export function NavBarComponent() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isScroll]);
 
-  if (!isScroll)
-    return (
-      <div className="nav-bar grid grid-cols-6 md:grid-cols-12 gap-3">
-        <div className="col-start-2 col-end-4 md:col-end-8 lg:col-end-10 flex flex-col">
-          <div className="nav-bar-title">
-            <span>La Thomás</span>
-            <span>Ristorante & Pizza</span>
-          </div>
-          <div className="nav-bar-links" ref={menu}>
-            <NavBarScrollComponent category={productCategory} />
-          </div>
+  return (
+    <div className="nav-bar grid grid-cols-6 md:grid-cols-12 gap-3" ref={menu}>
+      <div className="col-start-2 col-end-4 md:col-end-8 lg:col-end-10 flex flex-col">
+        <div className="nav-bar-title">
+          <span>La Thomás</span>
+          <span>Ristorante & Pizza</span>
         </div>
-        <div className="nav-bar-img md:col-span-4 lg:col-span-3">
-          <img src="../assets/img/header-img.png" alt="" />
-        </div>
-      </div>
-    );
-  else
-    return (
-      <div className="fixed top-0 w-full h-auto">
-        <div className="nav-bar-sticky relative" ref={menu}>
+        <div className={` nav-bar-links ${isScroll ? "sticky" : ""}`} ref={nav}>
           <NavBarScrollComponent category={productCategory} />
         </div>
       </div>
-    );
+      <div className="nav-bar-img md:col-span-4 lg:col-span-3 ">
+        <img
+          src="../assets/img/header-img.png"
+          alt=""
+          className={isScroll ? "hidden" : ""}
+        />
+      </div>
+    </div>
+  );
 }

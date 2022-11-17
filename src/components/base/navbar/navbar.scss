@@ -42,11 +42,19 @@
   }
 
   &-links {
-    display: flex;
     margin-top: auto;
-    justify-content: center;
-    padding: 10px;
     width: auto;
+
+    &.sticky {
+      position: fixed;
+      width: 100%;
+      right: 0;
+      background-image: linear-gradient(
+        to top,
+        rgb(236, 236, 239),
+        rgb(255, 255, 255)
+      );
+    }
   }
 
   &-img {
@@ -65,20 +73,4 @@
       width: 100%;
     }
   }
-}
-
-.nav-bar-sticky {
-  height: 3rem;
-  transition: 1s;
-  border: 1 solid black;
-  padding: 7px;
-  background-image: linear-gradient(
-    to top,
-    rgb(236, 236, 239),
-    rgb(255, 255, 255)
-  );
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
