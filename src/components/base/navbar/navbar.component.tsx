@@ -27,18 +27,17 @@ export function NavBarComponent() {
 
   if (!isScroll)
     return (
-      <div className="nav-bar">
-        <div className="nav-bar-left">
+      <div className="nav-bar grid grid-cols-6 md:grid-cols-12 gap-3">
+        <div className="col-start-2 col-end-4 md:col-end-8 lg:col-end-10 flex flex-col">
           <div className="nav-bar-title">
             <span>La Thomás</span>
             <span>Ristorante & Pizza</span>
           </div>
-
           <div className="nav-bar-links" ref={menu}>
             <NavBarScrollComponent category={productCategory} />
           </div>
         </div>
-        <div className="nav-bar-right">
+        <div className="nav-bar-img md:col-span-4 lg:col-span-3">
           <img src="../assets/img/header-img.png" alt="" />
         </div>
       </div>

@@ -1,8 +1,8 @@
 @use "./styles/mixins.scss";
 
 .nav-bar {
-  display: flex;
-  height: 240px;
+  height: 275px;
+  position: relative;
   justify-content: space-between;
   position: relative;
   background-image: url("../../../../public/assets/img/header-img.png");
@@ -16,22 +16,11 @@
       rgb(255, 255, 255)
     );
   }
-  &-left {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
 
-    @screen md {
-      width: 70%;
-    }
-  }
   &-title {
-    margin: 1.5rem 1.5rem auto 1.5rem;
     display: flex;
     flex-direction: column;
-    @screen md {
-      margin: 3rem 6.5rem auto 6.5rem;
-    }
+    margin-top: 3rem;
     span {
       color: var(--color-white);
       @screen md {
@@ -53,16 +42,16 @@
   }
 
   &-links {
-    margin-top: auto;
     display: flex;
+    margin-top: auto;
     justify-content: center;
     padding: 10px;
     width: auto;
   }
-  &-right {
-    float: right;
+
+  &-img {
     height: auto;
-    width: 28%;
+    width: 100%;
     display: none;
 
     @screen md {
@@ -79,6 +68,7 @@
 }
 
 .nav-bar-sticky {
+  height: 3rem;
   transition: 1s;
   border: 1 solid black;
   padding: 7px;
