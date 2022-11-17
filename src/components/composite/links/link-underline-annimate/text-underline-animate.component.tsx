@@ -1,5 +1,6 @@
+import { SmoothScroll } from "service/smooth-scroll/smoothScroll.service";
 import "./text-underline-animation.scss";
-import { Link as Scroll } from "react-scroll";
+// import { Link as Scroll } from "react-scroll";
 
 export function LinkUnderlineAnimation({
   text,
@@ -10,15 +11,13 @@ export function LinkUnderlineAnimation({
 }) {
   return (
     // surligné quand hover ou quand is activate is true
-    <Scroll
-      className="text-underline-a"
-      to={text}
-      spy={true}
+
+    <SmoothScroll
       offset={-100}
-      smooth={true}
-      duration={500}
+      // duration={500}
+      href={text}
     >
-      {text}
-    </Scroll>
+      <span className="text-underline-a">{text}</span>
+    </SmoothScroll>
   );
 }
