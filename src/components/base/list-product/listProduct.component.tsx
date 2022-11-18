@@ -12,7 +12,7 @@ export function ListProductComponent({
 }) {
   if (productList.length) {
     return (
-      <div className="list-product" id={title}>
+      <div className="list-product" id={title.toLocaleLowerCase()}>
         <div className="list-product-title">{title}</div>
         <div className="list-product-container grid grid-cols-12 gap-y-6 gap-x-3">
           {productList.map((item: IProduct, id: number) => (
