@@ -1,0 +1,17 @@
+@use "./styles/mixins.scss";
+.cart-price {
+  @include mixins.text-format(1.1rem, normal, normal, 600);
+  color: var(--color-dark-blue);
+  padding: 20px 10px;
+  span {
+    &:nth-child(1) {
+      float: left;
+    }
+    &:nth-child(2) {
+      float: right;
+    }
+  }
+  &.invalide {
+    color: var(--color-light-grey);
+  }
+}
