@@ -1,7 +1,12 @@
+import {
+  CartButtonComponent,
+  CartPriceComponent,
+} from "components/composite/cart/z-index";
 import { useEffect, useState } from "react";
 import { removeFromCart } from "states/features/cart.slice";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { ICartItem } from "types/cart/cart.interface";
+import CartContainerComponent from "../cart-container/cart.container";
 import { CartProductComponent } from "../cart-product/cartProduct.component";
 import "./cart.scss";
 
@@ -9,7 +14,6 @@ export function CartComponent() {
   const [totalValueCart, setTotalValueCart] = useState(0);
 
   const cartListProducts = useAppSelector((state) => state.cart);
-  const isScroll = useAppSelector((state) => state.scroll);
   const dispatch = useAppDispatch();
 
   function removeFormCartList(id: string) {
@@ -29,43 +33,32 @@ export function CartComponent() {
   }, [cartListProducts]);
 
   return (
-    <div className={`cart  ${isScroll.scroll ? "stick" : "normal"} `}>
-      <div className="cart-content">
-        <div className="cart-content-title">Mon Panier</div>
-      </div>
-
-      <div className="cart-content-product">
-        {cartListProducts.items.map((element: ICartItem, key: number) => {
-          return (
-            <CartProductComponent
-              onRemoveClick={removeFormCartList}
-              cartItem={element}
-              key={key}
-            />
-          );
-        })}
-      </div>
-
-      <div className="cart-content">
-        <div
-          className={`cart-content-price ${
-            totalValueCart === 0 ? "invalide" : ""
-          }`}
-        >
-          <span>Total :</span>
-          <span>{totalValueCart.toFixed(2)} €</span>
+    <CartContainerComponent>
+      <>
+        <div className="cart-content">
+          <div className="cart-content-title">Mon Panier</div>
         </div>
-      </div>
 
-      <div className="cart-footer">
-        <div
-          className={`cart-footer-btn ${
-            totalValueCart === 0 ? "invalide" : ""
-          }`}
-        >
-          Valider
+        <div className="cart-content-product">
+          {cartListProducts.items.map((element: ICartItem, key: number) => {
+            return (
+              <CartProductComponent
+                onRemoveClick={removeFormCartList}
+                cartItem={element}
+                key={key}
+              />
+            );
+          })}
         </div>
-      </div>
-    </div>
+
+        <div className="cart-content">
+          <CartPriceComponent price={totalValueCart} />
+        </div>
+        <CartButtonComponent
+          text="valider"
+          isValide={totalValueCart === 0 ? false : true}
+        />
+      </>
+    </CartContainerComponent>
   );
 }
