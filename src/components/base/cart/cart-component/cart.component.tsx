@@ -9,7 +9,10 @@ export function CartComponent() {
   const [totalValueCart, setTotalValueCart] = useState(0);
 
   const cartListProducts = useAppSelector((state) => state.cart);
+  const isScroll = useAppSelector((state) => state.scroll);
   const dispatch = useAppDispatch();
+
+  console.log(isScroll);
 
   function removeFormCartList(id: string) {
     dispatch(removeFromCart(id));
@@ -28,7 +31,7 @@ export function CartComponent() {
   }, [cartListProducts]);
 
   return (
-    <div className="cart">
+    <div className={`cart  ${isScroll.scroll ? "stick" : "normal"} `}>
       <div className="cart-content">
         <div className="cart-content-title">Mon Panier</div>
       </div>

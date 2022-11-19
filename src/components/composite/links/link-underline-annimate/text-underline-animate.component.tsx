@@ -1,14 +1,7 @@
 import { SmoothScroll } from "service/smooth-scroll/smoothScroll.service";
 import "./text-underline-animation.scss";
-// import { Link as Scroll } from "react-scroll";
 
-export function LinkUnderlineAnimation({
-  text,
-  isActivate,
-}: {
-  text: string;
-  isActivate: boolean;
-}) {
+export function LinkUnderlineAnimation({ text }: { text: string }) {
   return (
     // surligné quand hover ou quand is activate is true
 

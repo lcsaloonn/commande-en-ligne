@@ -28,11 +28,7 @@ export function NavBarScrollComponent({
       />
       <div className="nav-bar-scroll-items scrollbar-hide" ref={slider}>
         {category.map((element, number) => (
-          <LinkUnderlineAnimation
-            text={element.name}
-            isActivate={true}
-            key={number}
-          />
+          <LinkUnderlineAnimation text={element.name} key={number} />
         ))}
       </div>
       <FontAwesomeIcon
