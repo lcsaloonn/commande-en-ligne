@@ -12,8 +12,6 @@ export function CartComponent() {
   const isScroll = useAppSelector((state) => state.scroll);
   const dispatch = useAppDispatch();
 
-  console.log(isScroll);
-
   function removeFormCartList(id: string) {
     dispatch(removeFromCart(id));
   }
