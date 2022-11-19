@@ -1,0 +1,25 @@
+@use "./styles/mixins.scss";
+
+.cart-button {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 40px;
+  padding: 20px 0;
+  div {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 10px;
+    text-align: center;
+    @include mixins.text-format(1.1rem, normal, normal, 700);
+    width: 85%;
+    border-radius: 28px;
+    cursor: pointer;
+    user-select: none;
+
+    &.invalide {
+      background-color: var(--color-light-grey);
+    }
+  }
+}
