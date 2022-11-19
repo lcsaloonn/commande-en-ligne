@@ -22,7 +22,7 @@ export function CartProductComponent({
   const dispatch = useAppDispatch();
 
   return (
-    <div className="cart-container">
+    <div className="cart-product-container">
       <div className="cart-product">
         <div className="cart-product-quantity">
           <div className="cart-product-quantity-content">
