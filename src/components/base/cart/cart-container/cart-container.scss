@@ -3,6 +3,8 @@
   box-shadow: 5px 7px 20px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0 0 40px 40px;
   display: none;
+  top: 50px;
+  position: sticky;
 
   @screen md {
     display: flex;
@@ -13,14 +15,5 @@
     flex-direction: column;
     display: flex;
     width: 365px;
-  }
-
-  &.stick {
-    position: fixed;
-    top: 50px;
-  }
-  &.normal {
-    position: sticky;
-    top: 0;
   }
 }
