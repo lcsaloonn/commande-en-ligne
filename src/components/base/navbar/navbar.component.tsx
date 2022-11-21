@@ -1,13 +1,10 @@
 import { NavBarScrollComponent } from "components/composite/zindex";
 import { useEffect, useRef, useState } from "react";
-import { updateScroll } from "states/features/scroll.slice";
-
-import { useAppDispatch, useAppSelector } from "states/hoocks";
+import { useAppSelector } from "states/hoocks";
 import "./navbar.scss";
 
 export function NavBarComponent() {
   const [isScroll, setIsScroll] = useState(false);
-  const dispatch = useAppDispatch();
   const productCategory = useAppSelector(
     (state) => state.category.productCategory
   );
@@ -18,13 +15,11 @@ export function NavBarComponent() {
       if (menu.current && nav.current)
         if (window.scrollY >= nav.current.offsetTop && isScroll === false) {
           setIsScroll(true);
-          dispatch(updateScroll(true));
         } else if (
           window.scrollY < menu.current.offsetHeight - 96 &&
           isScroll === true
         ) {
           setIsScroll(false);
-          dispatch(updateScroll(false));
         }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
