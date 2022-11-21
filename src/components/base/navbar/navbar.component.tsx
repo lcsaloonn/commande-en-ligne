@@ -27,8 +27,8 @@ export function NavBarComponent() {
   }, [isScroll]);
 
   return (
-    <div className="nav-bar grid grid-cols-6 md:grid-cols-12 gap-3" ref={menu}>
-      <div className="col-start-2 col-end-4 md:col-end-9 lg:col-end-10 flex flex-col">
+    <div className="nav-bar grid grid-cols-9 md:grid-cols-12 gap-3" ref={menu}>
+      <div className="col-start-2 col-end-9 md:col-end-9 lg:col-end-10 flex flex-col">
         <div className="nav-bar-title">
           <span>La Thomás</span>
           <span>Ristorante & Pizza</span>

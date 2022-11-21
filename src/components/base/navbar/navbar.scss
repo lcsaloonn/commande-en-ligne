@@ -3,9 +3,11 @@
 .nav-bar {
   height: 275px;
   justify-content: space-between;
-  background-image: url("../../../../public/assets/img/header-img.png");
   background-position: top 0px center;
   background-repeat: no-repeat;
+  background: linear-gradient(0deg, rgba(3, 3, 3, 0.438), rgba(2, 2, 2, 0.473)),
+    url("../../../../public/assets/img/header-img.png");
+  background-size: cover;
 
   @screen md {
     background-image: linear-gradient(
@@ -25,13 +27,13 @@
         color: var(--color-dark-blue);
       }
       &:nth-child(1) {
-        @include mixins.text-format(1.8rem, normal, normal, 800);
+        @include mixins.text-format(2.3rem, normal, normal, 800);
         @screen md {
           @include mixins.text-format(2.5rem, normal, normal, 800);
         }
       }
       &:nth-child(2) {
-        @include mixins.text-format(1.1rem, normal, normal);
+        @include mixins.text-format(1.4rem, normal, normal);
         @screen md {
           @include mixins.text-format(1.6rem, normal, normal);
         }

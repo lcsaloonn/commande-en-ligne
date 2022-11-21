@@ -8,11 +8,10 @@
     display: flex;
     width: 100%;
     overflow-x: scroll;
-    overflow-y: auto;
+    gap: 24px;
     white-space: nowrap;
     scroll-behavior: smooth;
     padding: 12px 0;
-    justify-content: center;
     text-align: center;
     margin: auto;
   }
@@ -21,6 +20,10 @@
     height: 12px;
     width: 12px;
     margin: auto;
+    color: var(--color-white);
+    @screen md {
+      color: var(--color-dark-blue);
+    }
 
     @screen lg {
       display: none;

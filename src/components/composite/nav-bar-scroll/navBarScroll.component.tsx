@@ -23,7 +23,7 @@ export function NavBarScrollComponent({
     <div className="nav-bar-scroll">
       <FontAwesomeIcon
         icon={faAngleLeft}
-        className="nav-bar-scroll-icons"
+        className="nav-bar-scroll-icons pr-2"
         onClick={() => slide("left")}
       />
       <div className="nav-bar-scroll-items scrollbar-hide" ref={slider}>
@@ -33,7 +33,7 @@ export function NavBarScrollComponent({
       </div>
       <FontAwesomeIcon
         icon={faAngleRight}
-        className="nav-bar-scroll-icons"
+        className="nav-bar-scroll-icons pl-2"
         onClick={() => slide("right")}
       />
     </div>
