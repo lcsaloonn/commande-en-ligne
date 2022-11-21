@@ -9,7 +9,9 @@ export default function CartButtonComponent({
 }) {
   return (
     <div className="cart-button">
-      <div className={isValide ? "" : "invalide"}>Valider</div>
+      <div className={isValide ? "" : "invalid"} data-testid="btn">
+        {text}
+      </div>
     </div>
   );
 }
