@@ -6,6 +6,7 @@ import { useAppDispatch } from "states/hoocks";
 import { openModal } from "states/features/modal.slice";
 import { updateSelectProduct } from "states/features/products.slice";
 import { ICartItem } from "types/cart/cart.interface";
+import { CartProductExtraComponent } from "components/composite/cart/z-index";
 
 const mocktest = ["Jambon Parma", "Jambon Parma", "Jambon Parma"];
 export function CartProductComponent({
@@ -62,30 +63,7 @@ export function CartProductComponent({
           </div>
         </div>
       </div>
-      <div className={extras?.length ? "cart-product-extras" : "hidden"}>
-        {extrasList?.map((element: string, count: number) => {
-          const max = openExtras ? mocktest.length + 1 : 1;
-          return (
-            <i className={count > max ? "hidden" : ""} key={count}>
-              {element}
-            </i>
-          );
-        })}
-        <div className={extras && extras?.length > 2 ? "" : "hidden"}>
-          <div
-            className={!openExtras ? "cart-product-extras-btn" : "hidden"}
-            onClick={() => setOpenExtras(true)}
-          >
-            +
-          </div>
-          <div
-            className={openExtras ? "cart-product-extras-btn" : "hidden"}
-            onClick={() => setOpenExtras(false)}
-          >
-            -
-          </div>
-        </div>
-      </div>
+      <CartProductExtraComponent extrasList={extrasList} />
     </div>
   );
 }

@@ -1,0 +1,22 @@
+@use "./styles/mixins.scss";
+
+.cart-product-extras {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  @include mixins.text-format(0.8rem, normal, normal);
+  color: rgb(128, 122, 122);
+  i {
+    padding-top: 4px;
+  }
+  &-actions {
+    color: var(--color-dark-blue);
+    @include mixins.text-format(1rem, normal, normal 800);
+    cursor: pointer;
+    width: 1rem;
+    user-select: none;
+    &:hover {
+      color: #28c9c1;
+    }
+  }
+}
