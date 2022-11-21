@@ -56,19 +56,19 @@
   }
 
   &-img {
-    height: auto;
-    width: 100%;
-    display: none;
-
-    @screen md {
-      display: flex;
-    }
+    height: 100%;
+    width: auto;
+    max-height: 275px;
 
     img {
+      display: none;
       object-fit: cover;
       border-radius: 200px 0 0 200px;
       height: 100%;
       width: 100%;
+      @screen md {
+        display: block;
+      }
     }
   }
 }
