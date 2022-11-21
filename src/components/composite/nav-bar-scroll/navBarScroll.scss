@@ -6,12 +6,10 @@
 
   &-items {
     display: flex;
-    width: 100%;
     overflow-x: scroll;
     gap: 24px;
     white-space: nowrap;
     scroll-behavior: smooth;
-    padding: 12px 0;
     text-align: center;
     margin: auto;
   }
