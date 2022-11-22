@@ -1,7 +1,7 @@
 @use "./styles/mixins.scss";
 
 .nav-bar {
-  height: 275px;
+  height: 200px;
   justify-content: space-between;
   background-position: top 0px center;
   background-repeat: no-repeat;
@@ -10,6 +10,7 @@
   background-size: cover;
 
   @screen md {
+    height: 275px;
     background-image: linear-gradient(
       to top,
       rgb(236, 236, 239),
