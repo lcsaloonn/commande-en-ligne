@@ -14,10 +14,10 @@ export function ListProductComponent({
     return (
       <div className="list-product" id={title.toLocaleLowerCase()}>
         <div className="list-product-title">{title}</div>
-        <div className="list-product-container grid grid-cols-12 gap-y-6 gap-x-3">
+        <div className="list-product-container grid grid-cols-6 md:grid-cols-12 gap-y-6 gap-x-3">
           {productList.map((item: IProduct, id: number) => (
             <div
-              className="list-product-container-item col-span-9 xl:col-span-6 2xl:col-span-5"
+              className="list-product-container-item col-span-6 md:col-span-9 xl:col-span-6 2xl:col-span-5"
               key={id}
             >
               <ProductCardComponent
