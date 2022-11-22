@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { screen } from "@testing-library/react";
 import CartPriceComponent from "./cart-price";
 
-describe(CartPriceComponent, () => {
+describe("CartPriceComponent", () => {
   const priceNumber = 55;
   const setup = () => render(<CartPriceComponent price={priceNumber} />);
 
