@@ -1,0 +1,25 @@
+@use "./styles/mixins.scss";
+
+.cart-phone-btn {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background-color: #e84249;
+  align-items: center;
+  border-radius: 25px 25px 0 0;
+  box-sizing: border-box;
+  padding: 0 25px;
+  cursor: pointer;
+  gap: 10%;
+  text-decoration: none;
+
+  @screen md {
+    display: none;
+  }
+  span {
+    color: var(--color-white);
+    @include mixins.text-format(0.9rem, normal, normal, 800);
+  }
+}
