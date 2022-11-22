@@ -1,6 +1,7 @@
 @use "./styles/mixins.scss";
 
 .list-product {
+  margin: 20px;
   &-title {
     @include mixins.text-format(1.6rem, normal, normal, 800);
     font-family: gill sans, sans-serif;

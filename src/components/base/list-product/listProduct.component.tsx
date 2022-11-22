@@ -17,7 +17,7 @@ export function ListProductComponent({
         <div className="list-product-container grid grid-cols-12 gap-y-6 gap-x-3">
           {productList.map((item: IProduct, id: number) => (
             <div
-              className="list-product-container-item col-span-9 xlp:col-span-6"
+              className="list-product-container-item col-span-9 xl:col-span-6 2xl:col-span-5"
               key={id}
             >
               <ProductCardComponent
