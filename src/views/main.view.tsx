@@ -46,7 +46,9 @@ export function MainView() {
           </div>
 
           <div className="main-view-body-cart md:col-span-5 xl:col-span-4">
-            <CartComponent />
+            <div className="hidden md:contents">
+              <CartComponent />
+            </div>
 
             <CartModalComponent>
               <ModalContentCartComponent productSelected={productSelected} />
