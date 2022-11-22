@@ -2,7 +2,6 @@ import {
   CartButtonComponent,
   CartPriceComponent,
 } from "components/composite/cart/z-index";
-import { useEffect, useState } from "react";
 import { removeFromCart } from "states/features/cart.slice";
 import { useAppDispatch, useAppSelector } from "states/hoocks";
 import { ICartItem } from "types/cart/cart.interface";
@@ -11,26 +10,12 @@ import { CartProductComponent } from "../cart-product/cartProduct.component";
 import "./cart.scss";
 
 export function CartComponent() {
-  const [totalValueCart, setTotalValueCart] = useState(0);
-
   const cartListProducts = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
   function removeFormCartList(id: string) {
     dispatch(removeFromCart(id));
   }
-
-  function somtotalValueCart() {
-    let total = 0;
-    cartListProducts.items.forEach((items) => {
-      total += items.item.totalProduct;
-    });
-    setTotalValueCart(total);
-  }
-
-  useEffect(() => {
-    somtotalValueCart();
-  }, [cartListProducts]);
 
   return (
     <CartContainerComponent>
@@ -52,11 +37,11 @@ export function CartComponent() {
         </div>
 
         <div className="cart-content">
-          <CartPriceComponent price={totalValueCart} />
+          <CartPriceComponent price={cartListProducts.total} />
         </div>
         <CartButtonComponent
           text="valider"
-          isValide={totalValueCart === 0 ? false : true}
+          isValide={cartListProducts.total === 0 ? false : true}
         />
       </>
     </CartContainerComponent>

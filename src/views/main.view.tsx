@@ -17,6 +17,8 @@ export function MainView() {
     (state) => state.category.productCategory
   );
 
+  const cart = useAppSelector((state) => state.cart);
+
   function findProductBycateogory(idCategory: number) {
     let array: IProduct[] = [];
     products.forEach((element) => {
@@ -51,7 +53,7 @@ export function MainView() {
             </CartModalComponent>
           </div>
         </div>
-        <CartPhoneBtn price={30} />
+        <CartPhoneBtn price={cart.total} />
       </div>
     </>
   );
