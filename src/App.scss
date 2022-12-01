@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./styles/buttons.scss";
+
 * {
   margin: 0;
   padding: 0;
