@@ -29,6 +29,7 @@
   background-color: #fff;
   padding: 50px;
   z-index: 1000;
+  border-radius: 25px;
 }
 .overlay {
   position: fixed;
@@ -47,7 +48,7 @@ body.active-modal {
 }
 
 .close-modal {
-  border-bottom-left-radius: 45px;
+  border-radius: 25px;
   background-color: var(--color-white);
   position: absolute;
   top: 0px;
