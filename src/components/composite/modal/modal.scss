@@ -1,0 +1,58 @@
+// .modal-content {
+//   position: fixed;
+
+//   bottom: 0;
+//   background-color: #ececef;
+//   border-radius: 35px 0 0 0;
+//   overflow-y: scroll;
+
+//   // @screen lg {
+//   //   max-height: 600px;
+//   //   width: 380px;
+//   //   height: auto;
+//   //   right: 7%;
+//   // }
+
+//   // @screen xl {
+//   //   max-height: 600px;
+//   //   width: 390px;
+//   //   height: auto;
+//   //   right: 7%;
+//   // }
+// }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  z-index: 1000;
+}
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.close-modal {
+  border-bottom-left-radius: 45px;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 20px 20px 25px 30px;
+  color: var(--color-red);
+  cursor: pointer;
+}
