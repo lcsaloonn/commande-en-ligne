@@ -16,7 +16,7 @@ export default function ModalComponent({
   else
     return ReactDOM.createPortal(
       <>
-        <div className="overlay" onClick={onClose} />
+        <div className="modal-overlay" onClick={onClose} />
         <div className="modal">
           <div className="modal-content">
             {children}
