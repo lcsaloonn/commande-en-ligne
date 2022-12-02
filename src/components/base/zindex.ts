@@ -4,6 +4,7 @@ import { ModalContentCartComponent } from "./cart-modal/modal-content-cart/modal
 import { ListProductComponent } from "./list-product/listProduct.component";
 import { CartProductComponent } from "./cart/cart-product/cartProduct.component";
 import { NavBarComponent } from "./navbar/navbar.component";
+import WithdrawalTimeComponent from "./withdrawal-time/withdrawal-time.component";
 
 export {
   CartModalComponent,
@@ -12,4 +13,5 @@ export {
   ListProductComponent,
   ModalContentCartComponent,
   NavBarComponent,
+  WithdrawalTimeComponent,
 };
