@@ -1,0 +1,27 @@
+@use "./styles/mixins.scss";
+
+.withdrawalTime {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  &-title {
+    @include mixins.text-format(1.5rem, normal, normal, 300);
+    color: var(--color-dark-blue);
+    max-width: 380px;
+    text-align: center;
+  }
+  &-btn {
+    background-color: var(--color-grey);
+    color: var(--color-white);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 25px;
+    @include mixins.text-format(16px, normal, normal, 300);
+    cursor: pointer;
+    &.active {
+      background-color: var(--color-red);
+      color: var(--color-white);
+    }
+  }
+}
