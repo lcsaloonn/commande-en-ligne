@@ -21,7 +21,7 @@ export default function TimePickerComponent({
         isOpen={isModalOpen}
         onClose={() => SetIsModalOpen(false)}
       >
-        <WithdrawalTimeComponent />
+        <WithdrawalTimeComponent selected={() => SetIsModalOpen(false)} />
       </ModalComponent>
     </>
   );

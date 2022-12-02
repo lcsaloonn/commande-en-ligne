@@ -3,15 +3,13 @@ import "./select.scss";
 
 export default function SelectComponent({
   data,
-  defaultValue,
   selectedTime,
 }: {
   data: any[];
-  defaultValue: string | number;
   selectedTime: any;
 }) {
   const [isActivated, setActivated] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<any>(defaultValue);
+  const [selectedOption, setSelectedOption] = useState<any>(data[0]);
   const textBox = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

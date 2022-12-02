@@ -1,8 +1,13 @@
 import SelectComponent from "components/composite/form/element/select/select.custom.component";
 import { useEffect, useRef, useState } from "react";
+import { TimeService } from "service/time/time.service";
 import "./withdrawal-time.scss";
 
-export default function WithdrawalTimeComponent() {
+export default function WithdrawalTimeComponent({
+  selected,
+}: {
+  selected: any;
+}) {
   const [choosenTime, setChoosenTime] = useState<number>();
   const [isSelected, setIsSelected] = useState<boolean>(false);
   const planBtn = useRef<HTMLButtonElement>(null);
@@ -20,17 +25,16 @@ export default function WithdrawalTimeComponent() {
       </div>
       <div onClick={() => setIsSelected(true)}>
         <SelectComponent
-          data={[14, 14.15, 14.3, 14.45, 15]}
-          defaultValue={14}
+          data={TimeService.createPickUpList(12, 13, 15)}
           selectedTime={(value: number) => setChoosenTime(value)}
         />
       </div>
-      {/* planifer valid le from si changement dans select */}
-      <button className="withdrawalTime-btn" ref={planBtn}>
+      <button className="withdrawalTime-btn" ref={planBtn} onClick={selected}>
         Planifier
       </button>
-      {/* au plus tot close modal */}
-      <button className="btn-red">Au plus tôt {"(18:48)"}</button>
+      <button className="btn-red" onClick={selected}>
+        Au plus tôt {"(18:48)"}
+      </button>
     </div>
   );
 }
