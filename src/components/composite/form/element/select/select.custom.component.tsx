@@ -4,17 +4,21 @@ import "./select.scss";
 export default function SelectComponent({
   data,
   defaultValue,
+  selectedTime,
 }: {
   data: any[];
   defaultValue: string | number;
+  selectedTime: any;
 }) {
   const [isActivated, setActivated] = useState(false);
   const [selectedOption, setSelectedOption] = useState<any>(defaultValue);
   const textBox = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (textBox.current) textBox.current.value = selectedOption;
-    //returnValue(optionvalue);
+    if (textBox.current) {
+      textBox.current.value = selectedOption;
+      selectedTime(textBox.current.value);
+    }
   }, [selectedOption]);
 
   return (
