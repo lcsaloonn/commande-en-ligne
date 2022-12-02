@@ -20,7 +20,10 @@ export function CartModalComponent({ children }: { children: JSX.Element }) {
           <div onClick={() => dispatch(closeModal())} className="overlay"></div>
           <div className="cart-modal-content">
             {children}
-            <div className="close-modal" onClick={() => dispatch(closeModal())}>
+            <div
+              className="close-cart-modal"
+              onClick={() => dispatch(closeModal())}
+            >
               <FontAwesomeIcon className="button-go-back-icon" icon={faX} />
             </div>
           </div>
