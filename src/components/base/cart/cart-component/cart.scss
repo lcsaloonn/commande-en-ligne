@@ -4,13 +4,6 @@
   &-content {
     padding: 30px 15px 30px 20px;
 
-    &-title {
-      @include mixins.text-format(1.6rem, normal, normal, 800);
-      color: var(--color-dark-blue);
-      font-family: gill sans, sans-serif;
-      padding-bottom: 20px;
-    }
-
     &-product {
       max-height: 220px;
       overflow-y: auto;

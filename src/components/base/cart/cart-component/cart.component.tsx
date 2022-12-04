@@ -20,10 +20,6 @@ export function CartComponent() {
   return (
     <CartContainerComponent>
       <>
-        <div className="cart-content">
-          <div className="cart-content-title">Mon Panier</div>
-        </div>
-
         <div className="cart-content-product">
           {cartListProducts.items.map((element: ICartItem, key: number) => {
             return (
