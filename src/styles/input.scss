@@ -1,0 +1,20 @@
+.input-text-info-full {
+  border: 1px solid var(--color-light-blue);
+  padding: 10px;
+  background-color: rgba(90, 200, 245, 0.1) !important;
+  outline: none;
+}
+.input-text-info-empty {
+  border: 1.5px solid var(--color-light-grey);
+  padding: 10px;
+  background-color: var(--color-white);
+  color: var(--color-light-grey);
+  &:focus {
+    border: 1.5px solid var(--color-light-blue);
+    background-color: var(--color-white);
+    outline: none;
+  }
+}
+.input-text-info-click {
+  outline: none;
+}

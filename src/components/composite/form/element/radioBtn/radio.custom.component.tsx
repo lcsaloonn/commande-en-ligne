@@ -8,7 +8,7 @@ export default function RadioButtonComponent({
   id: string;
   family: string;
   label: string;
-  isChecked: boolean;
+  isChecked?: boolean;
 }) {
   return (
     <div className="custom-radio">
